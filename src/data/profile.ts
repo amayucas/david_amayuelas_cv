@@ -99,14 +99,15 @@ export const profile: Profile = {
   name: 'David Amayuelas Díaz',
   title: 'Senior Mobile Developer (Android & iOS)',
   photo: '/images/profile.jpg', // Set to '' to hide photo
-  email: 'david@amayuelas.dev',
+  email: 'amayudance@gmail.com',
+  phone: '+34 682 131 939',
   location: 'Madrid, España',
 
   // -------------------------------------------------------------------------
   // CONTACT & SOCIAL (Optional - remove or set to undefined if not needed)
   // -------------------------------------------------------------------------
   linkedin: 'https://linkedin.com/in/amayuelas',
-  github: 'https://github.com/amayuelas',
+  github: 'https://github.com/amayucas',
 
   // -------------------------------------------------------------------------
   // PROFESSIONAL SUMMARY

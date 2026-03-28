@@ -117,34 +117,35 @@ export interface Experience {
  */
 export const experience: Experience[] = [
   // ---------------------------------------------------------------------------
-  // CURRENT POSITION (or most recent)
+  // CURRENT POSITION
   // ---------------------------------------------------------------------------
   {
     id: 'exp-1',
-    title: 'Senior Software Engineer',
-    company: 'TechCorp Inc.',
-    // companyLogo: '/logos/techcorp.png',  // Uncomment and add logo if you have one
-    location: 'San Francisco, CA',
+    title: 'Senior Mobile Developer (Android & iOS)',
+    company: 'Carrefour España',
+    location: 'Madrid, España',
     type: 'full-time',
-    startDate: '2022-01',
-    // endDate: undefined,  // Omit or undefined for current position
+    startDate: '2020-01',
     current: true,
     description:
-      'Lead development of customer-facing web applications and mentor junior developers.',
+      'Desarrollo y mantenimiento de las aplicaciones móviles de Carrefour España para Android e iOS, contribuyendo a la transformación digital del retailer líder en Europa.',
     achievements: [
-      'Architected microservices platform handling 10M+ requests/day',
-      'Reduced deployment time by 80% through CI/CD improvements',
-      'Mentored 3 junior developers to mid-level positions',
-      'Led migration from monolith to microservices architecture',
+      'Desarrollo de funcionalidades clave en las apps Android e iOS con millones de usuarios activos',
+      'Implementación de arquitecturas limpias (MVVM, Clean Architecture) mejorando la mantenibilidad del código',
+      'Integración con plataformas de IA y nuevas tecnologías para la experiencia de compra digital',
+      'Colaboración en la estrategia de transformación digital de Carrefour España',
+      'Impulso de buenas prácticas de desarrollo mobile en el equipo técnico',
     ],
     technologies: [
-      'React',
-      'TypeScript',
-      'Node.js',
-      'PostgreSQL',
-      'AWS',
-      'Docker',
-      'Kubernetes',
+      'Kotlin',
+      'Swift',
+      'Android',
+      'iOS',
+      'Jetpack Compose',
+      'SwiftUI',
+      'React Native',
+      'Google Cloud',
+      'CI/CD',
     ],
   },
 
@@ -153,65 +154,29 @@ export const experience: Experience[] = [
   // ---------------------------------------------------------------------------
   {
     id: 'exp-2',
-    title: 'Software Engineer',
-    company: 'StartupXYZ',
-    location: 'San Francisco, CA',
+    title: 'Mobile Developer',
+    company: 'Be Real Talent',
+    location: 'Madrid, España',
     type: 'full-time',
-    startDate: '2019-03',
-    endDate: '2021-12',
-    current: false,
-    description: 'Full-stack development for a fast-growing SaaS platform.',
-    achievements: [
-      'Built real-time collaboration features used by 50K+ users',
-      'Implemented automated testing reducing bugs by 40%',
-      'Optimized database queries improving response time by 60%',
-    ],
-    technologies: ['React', 'Python', 'Django', 'PostgreSQL', 'Redis', 'AWS'],
-  },
-
-  // ---------------------------------------------------------------------------
-  // EARLIER POSITION
-  // ---------------------------------------------------------------------------
-  {
-    id: 'exp-3',
-    title: 'Junior Developer',
-    company: 'WebAgency Co.',
-    location: 'Los Angeles, CA',
-    type: 'full-time',
-    startDate: '2016-06',
-    endDate: '2019-02',
+    startDate: '2018-01',
+    endDate: '2019-12',
     current: false,
     description:
-      'Developed custom web solutions for various clients across different industries.',
+      'Desarrollo de funcionalidades de la app Be Real Talent, plataforma de conexión entre empresas y talento tecnológico.',
     achievements: [
-      'Delivered 20+ client projects on time and within budget',
-      'Introduced component-based architecture improving code reuse',
-      'Created internal tools saving 10 hours/week of manual work',
+      'Desarrollo responsable y en tiempo de las funcionalidades asignadas de la plataforma',
+      'Trabajo en equipo en entorno startup con metodologías ágiles',
+      'Contribución al crecimiento de la app desde las etapas iniciales del producto',
     ],
-    technologies: ['JavaScript', 'React', 'PHP', 'MySQL', 'WordPress'],
+    technologies: [
+      'Android',
+      'Kotlin',
+      'iOS',
+      'Swift',
+      'REST APIs',
+      'Git',
+    ],
   },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE POSITIONS HERE
-  // Copy the template below and fill in your details
-  // ---------------------------------------------------------------------------
-  // {
-  //   id: 'exp-4',
-  //   title: 'Your Job Title',
-  //   company: 'Company Name',
-  //   companyLogo: '/logos/company.png',  // Optional
-  //   location: 'City, Country',
-  //   type: 'full-time',
-  //   startDate: 'YYYY-MM',
-  //   endDate: 'YYYY-MM',  // Remove for current position
-  //   current: false,
-  //   description: 'Brief description of your role and responsibilities.',
-  //   achievements: [
-  //     'Achievement with metrics...',
-  //     'Another achievement...',
-  //   ],
-  //   technologies: ['Tech1', 'Tech2', 'Tech3'],
-  // },
 ];
 
 // =============================================================================

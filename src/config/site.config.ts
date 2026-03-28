@@ -135,10 +135,10 @@ export const siteConfig: SiteConfig = {
   // ---------------------------------------------------------------------------
   meta: {
     titleTemplate: '{{name}} | {{title}}',
-    defaultDescription: 'Professional resume and portfolio website',
-    keywords: ['resume', 'portfolio', 'developer', 'software engineer', 'web developer'],
-    siteUrl: 'https://your-domain.com',
-    locale: 'en',
+    defaultDescription: 'Senior Mobile Developer especializado en Android e iOS. Kotlin, Swift, React Native. Actualmente en Carrefour España.',
+    keywords: ['mobile developer', 'android', 'ios', 'kotlin', 'swift', 'react native', 'carrefour', 'madrid', 'senior developer'],
+    siteUrl: 'https://amayuelas.dev',
+    locale: 'es',
   },
 
   // ---------------------------------------------------------------------------
@@ -154,7 +154,7 @@ export const siteConfig: SiteConfig = {
     // - Pink: "330 70% 50%"
     // - Teal: "180 70% 45%"
     // - Red: "0 80% 50%"
-    primaryColor: '220 92% 50%',
+    primaryColor: '150 70% 40%',
     darkModeEnabled: true,
     defaultColorMode: 'system',
     fontFamily: 'Inter',

@@ -82,17 +82,11 @@ export interface Language {
  * Add, remove, or rename categories as needed.
  */
 export const skillCategories: string[] = [
+  'Mobile',       // Mobile development
   'Languages',    // Programming languages
-  'Frontend',     // Frontend frameworks & libraries
   'Backend',      // Backend frameworks & technologies
-  'Databases',    // Database technologies
   'Cloud',        // Cloud platforms & services
   'DevOps',       // DevOps tools & practices
-  // Add more categories here:
-  // 'Mobile',
-  // 'Design',
-  // 'Soft Skills',
-  // 'Other',
 ];
 
 /**
@@ -105,108 +99,104 @@ export const skillCategories: string[] = [
  */
 export const skills: Skill[] = [
   // ---------------------------------------------------------------------------
+  // MOBILE
+  // ---------------------------------------------------------------------------
+  {
+    name: 'Android (Kotlin)',
+    level: 95,
+    category: 'Mobile',
+    yearsOfExperience: 7,
+  },
+  {
+    name: 'iOS (Swift)',
+    level: 90,
+    category: 'Mobile',
+    yearsOfExperience: 6,
+  },
+  {
+    name: 'Jetpack Compose',
+    level: 88,
+    category: 'Mobile',
+    yearsOfExperience: 3,
+  },
+  {
+    name: 'SwiftUI',
+    level: 82,
+    category: 'Mobile',
+    yearsOfExperience: 3,
+  },
+  {
+    name: 'React Native',
+    level: 78,
+    category: 'Mobile',
+    yearsOfExperience: 3,
+  },
+  {
+    name: 'Clean Architecture / MVVM',
+    level: 90,
+    category: 'Mobile',
+    yearsOfExperience: 5,
+  },
+
+  // ---------------------------------------------------------------------------
   // PROGRAMMING LANGUAGES
   // ---------------------------------------------------------------------------
   {
-    name: 'TypeScript',
+    name: 'Kotlin',
     level: 95,
+    category: 'Languages',
+    yearsOfExperience: 7,
+  },
+  {
+    name: 'Swift',
+    level: 90,
+    category: 'Languages',
+    yearsOfExperience: 6,
+  },
+  {
+    name: 'Java',
+    level: 80,
     category: 'Languages',
     yearsOfExperience: 5,
   },
   {
     name: 'JavaScript',
-    level: 95,
+    level: 75,
     category: 'Languages',
-    yearsOfExperience: 8,
+    yearsOfExperience: 4,
   },
   {
     name: 'Python',
-    level: 80,
-    category: 'Languages',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Go',
     level: 65,
     category: 'Languages',
-    yearsOfExperience: 2,
-  },
-
-  // ---------------------------------------------------------------------------
-  // FRONTEND
-  // ---------------------------------------------------------------------------
-  {
-    name: 'React',
-    level: 95,
-    category: 'Frontend',
-    yearsOfExperience: 6,
-  },
-  {
-    name: 'Next.js',
-    level: 90,
-    category: 'Frontend',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Tailwind CSS',
-    level: 90,
-    category: 'Frontend',
     yearsOfExperience: 3,
-  },
-  {
-    name: 'Vue.js',
-    level: 70,
-    category: 'Frontend',
-    yearsOfExperience: 2,
   },
 
   // ---------------------------------------------------------------------------
   // BACKEND
   // ---------------------------------------------------------------------------
   {
-    name: 'Node.js',
-    level: 90,
-    category: 'Backend',
-    yearsOfExperience: 6,
-  },
-  {
-    name: 'Express',
-    level: 88,
-    category: 'Backend',
-    yearsOfExperience: 5,
-  },
-  {
-    name: 'Django',
-    level: 75,
+    name: 'Node.js / Express',
+    level: 72,
     category: 'Backend',
     yearsOfExperience: 3,
   },
   {
-    name: 'GraphQL',
-    level: 80,
+    name: 'Django / Python',
+    level: 68,
     category: 'Backend',
-    yearsOfExperience: 3,
+    yearsOfExperience: 2,
   },
-
-  // ---------------------------------------------------------------------------
-  // DATABASES
-  // ---------------------------------------------------------------------------
   {
-    name: 'PostgreSQL',
-    level: 85,
-    category: 'Databases',
-    yearsOfExperience: 5,
+    name: 'REST APIs',
+    level: 92,
+    category: 'Backend',
+    yearsOfExperience: 7,
   },
   {
     name: 'MongoDB',
-    level: 80,
-    category: 'Databases',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Redis',
-    level: 75,
-    category: 'Databases',
+    level: 70,
+    category: 'Backend',
     yearsOfExperience: 3,
   },
 
@@ -214,39 +204,29 @@ export const skills: Skill[] = [
   // CLOUD & DEVOPS
   // ---------------------------------------------------------------------------
   {
-    name: 'AWS',
-    level: 85,
+    name: 'Google Cloud (GCP)',
+    level: 72,
     category: 'Cloud',
-    yearsOfExperience: 4,
+    yearsOfExperience: 3,
   },
   {
-    name: 'Docker',
-    level: 85,
+    name: 'Git',
+    level: 92,
     category: 'DevOps',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Kubernetes',
-    level: 70,
-    category: 'DevOps',
-    yearsOfExperience: 2,
+    yearsOfExperience: 8,
   },
   {
     name: 'CI/CD',
-    level: 85,
+    level: 80,
     category: 'DevOps',
     yearsOfExperience: 4,
   },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE SKILLS HERE
-  // ---------------------------------------------------------------------------
-  // {
-  //   name: 'Your Skill',
-  //   level: 85,
-  //   category: 'Category Name',
-  //   yearsOfExperience: 3,
-  // },
+  {
+    name: 'Agile / Scrum',
+    level: 88,
+    category: 'DevOps',
+    yearsOfExperience: 6,
+  },
 ];
 
 /**
@@ -257,11 +237,9 @@ export const skills: Skill[] = [
  * List the languages you speak and your proficiency level.
  */
 export const languages: Language[] = [
-  { name: 'English', level: 'Native' },
-  { name: 'Spanish', level: 'Professional' },
-  { name: 'French', level: 'Basic' },
-  // Add more languages here:
-  // { name: 'German', level: 'Intermediate' },
+  { name: 'Español', level: 'Native' },
+  { name: 'Inglés', level: 'Professional' },
+  { name: 'Chino', level: 'Basic' },
 ];
 
 // =============================================================================

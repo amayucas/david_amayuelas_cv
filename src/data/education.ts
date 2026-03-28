@@ -154,62 +154,22 @@ export interface Award {
  * List in reverse chronological order (most recent first).
  */
 export const education: Education[] = [
-  // ---------------------------------------------------------------------------
-  // HIGHEST DEGREE
-  // ---------------------------------------------------------------------------
   {
     id: 'edu-1',
-    degree: 'Master of Science',
-    field: 'Computer Science',
-    school: 'Stanford University',
-    // schoolLogo: '/logos/stanford.png',  // Uncomment if you have a logo
-    location: 'Stanford, CA',
-    startYear: 2014,
-    endYear: 2016,
-    gpa: '3.9/4.0',
-    honors: ['Magna Cum Laude', "Dean's List"],
+    degree: 'Grado / Ingeniería',
+    field: 'Ingeniería Informática',
+    school: 'Universidad Politécnica de Madrid',
+    location: 'Madrid, España',
+    startYear: 2015,
+    endYear: 2020,
     relevantCourses: [
-      'Distributed Systems',
-      'Machine Learning',
-      'Advanced Algorithms',
+      'Programación Orientada a Objetos',
+      'Sistemas Operativos',
+      'Redes de Computadores',
+      'Ingeniería del Software',
+      'Bases de Datos',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // UNDERGRADUATE DEGREE
-  // ---------------------------------------------------------------------------
-  {
-    id: 'edu-2',
-    degree: 'Bachelor of Science',
-    field: 'Computer Engineering',
-    school: 'UC Berkeley',
-    location: 'Berkeley, CA',
-    startYear: 2010,
-    endYear: 2014,
-    gpa: '3.7/4.0',
-    honors: ['Cum Laude'],
-    relevantCourses: [
-      'Data Structures',
-      'Operating Systems',
-      'Computer Networks',
-    ],
-  },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE EDUCATION HERE
-  // ---------------------------------------------------------------------------
-  // {
-  //   id: 'edu-3',
-  //   degree: 'Your Degree',
-  //   field: 'Your Field',
-  //   school: 'School Name',
-  //   location: 'City, Country',
-  //   startYear: 2018,
-  //   endYear: 2022,
-  //   gpa: '3.5/4.0',  // Optional
-  //   honors: ['Honor 1'],  // Optional
-  //   relevantCourses: ['Course 1', 'Course 2'],  // Optional
-  // },
 ];
 
 /**
@@ -223,43 +183,70 @@ export const education: Education[] = [
 export const certifications: Certification[] = [
   {
     id: 'cert-1',
-    name: 'AWS Solutions Architect - Professional',
-    issuer: 'Amazon Web Services',
-    // issuerLogo: '/logos/aws.png',  // Uncomment if you have a logo
-    date: '2023-06',
-    expirationDate: '2026-06',
-    credentialId: 'AWS-SAP-123456',
-    credentialUrl: 'https://aws.amazon.com/verification',
+    name: 'Certificado de Desarrollo con IA',
+    issuer: 'BIG school',
+    date: '2026-03',
   },
   {
     id: 'cert-2',
-    name: 'Google Cloud Professional Developer',
-    issuer: 'Google Cloud',
-    date: '2023-01',
-    expirationDate: '2025-01',
-    credentialId: 'GCP-PD-789012',
+    name: 'Open Water Diver',
+    issuer: 'PADI',
+    date: '2025-05',
   },
   {
     id: 'cert-3',
-    name: 'Certified Kubernetes Administrator',
-    issuer: 'Cloud Native Computing Foundation',
-    date: '2022-08',
-    expirationDate: '2025-08',
-    credentialId: 'CKA-345678',
+    name: 'Google Cloud Fundamentals: Core Infrastructure en Español',
+    issuer: 'Coursera',
+    date: '2022-11',
+    credentialId: '44LW6DYXEGKG',
   },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE CERTIFICATIONS HERE
-  // ---------------------------------------------------------------------------
-  // {
-  //   id: 'cert-4',
-  //   name: 'Certification Name',
-  //   issuer: 'Issuing Organization',
-  //   date: '2024-01',
-  //   expirationDate: '2027-01',  // Optional
-  //   credentialId: 'CERT-ID',    // Optional
-  //   credentialUrl: 'https://verify.example.com',  // Optional
-  // },
+  {
+    id: 'cert-4',
+    name: 'Preparing for Your Professional Cloud Security Engineer Journey',
+    issuer: 'Coursera',
+    date: '2022-11',
+    credentialId: 'C2M4U67L7C4V',
+  },
+  {
+    id: 'cert-5',
+    name: 'Piloto de RPAS',
+    issuer: 'EASA - European Union Aviation Safety Agency',
+    date: '2020-12',
+  },
+  {
+    id: 'cert-6',
+    name: 'Django + Python & REST',
+    issuer: 'KeepCoding®',
+    date: '2018-12',
+    credentialId: 'cert_k5spg8s3',
+  },
+  {
+    id: 'cert-7',
+    name: 'Advanced Kotlin',
+    issuer: 'KeepCoding®',
+    date: '2018-07',
+    credentialId: 'cert_h1j7pz6w',
+  },
+  {
+    id: 'cert-8',
+    name: 'JavaScript + Node.js + Express + MongoDB',
+    issuer: 'KeepCoding®',
+    date: '2018-01',
+    credentialId: 'cert_2j3cpjkx',
+  },
+  {
+    id: 'cert-9',
+    name: 'Mobile Apps',
+    issuer: 'Actívate con Google',
+    date: '2017-02',
+  },
+  {
+    id: 'cert-10',
+    name: 'Certificación B2 en Lengua Inglesa',
+    issuer: 'TOEIC® Program',
+    date: '2016-11',
+    expirationDate: '2018-11',
+  },
 ];
 
 /**
@@ -270,33 +257,7 @@ export const certifications: Certification[] = [
  * Add awards, honors, or recognition you've received.
  * Remove this array or leave empty if you have no awards.
  */
-export const awards: Award[] = [
-  {
-    id: 'award-1',
-    title: 'Employee of the Year',
-    issuer: 'TechCorp Inc.',
-    date: '2023',
-    description: 'Recognized for outstanding contributions to the engineering team',
-  },
-  {
-    id: 'award-2',
-    title: 'Best Technical Talk',
-    issuer: 'ReactConf 2022',
-    date: '2022',
-    description: 'Awarded for presentation on React performance optimization',
-  },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE AWARDS HERE
-  // ---------------------------------------------------------------------------
-  // {
-  //   id: 'award-3',
-  //   title: 'Award Title',
-  //   issuer: 'Organization',
-  //   date: '2024',
-  //   description: 'Brief description of the award',  // Optional
-  // },
-];
+export const awards: Award[] = [];
 
 // =============================================================================
 // HELPER FUNCTIONS

@@ -129,16 +129,10 @@ export interface Project {
  */
 export const projectCategories: string[] = [
   'All',
-  'Web Application',
-  'SaaS',
   'Mobile App',
-  'Data Visualization',
-  'Developer Tools',
-  // Add more categories here:
-  // 'E-Commerce',
-  // 'AI/ML',
-  // 'Open Source',
-  // 'Personal Project',
+  'Open Source',
+  'Backend',
+  'Personal Project',
 ];
 
 /**
@@ -150,169 +144,90 @@ export const projectCategories: string[] = [
  * Mark your best 3-4 projects as featured.
  */
 export const projects: Project[] = [
-  // ---------------------------------------------------------------------------
-  // FEATURED PROJECT 1
-  // ---------------------------------------------------------------------------
   {
     id: 'proj-1',
-    slug: 'e-commerce-platform',
-    title: 'E-Commerce Platform',
+    slug: 'swiftynetworking',
+    title: 'SwiftyNetworking',
     description:
-      'Full-stack e-commerce solution with real-time inventory management and payment processing.',
-    longDescription: `Built a comprehensive e-commerce platform from scratch, featuring real-time inventory tracking, 
-    secure payment processing with Stripe, and an admin dashboard for order management. The platform handles 
-    thousands of concurrent users and processes over $2M in transactions monthly.`,
-    thumbnail: '/projects/ecommerce-thumb.jpg',
-    images: [
-      '/projects/ecommerce-1.jpg',
-      '/projects/ecommerce-2.jpg',
-      '/projects/ecommerce-3.jpg',
-    ],
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Redis', 'AWS'],
-    category: 'Web Application',
-    role: 'Lead Developer',
-    duration: '6 months',
-    liveUrl: 'https://example-ecommerce.com',
-    githubUrl: 'https://github.com/alexjohnson/ecommerce',
+      'Librería open source de networking para iOS/Swift, minimalista y extensible, actualizada a Swift 6 con Strict Concurrency.',
+    longDescription: `SwiftyNetworking es una capa de networking minimal y extensible para apps iOS, diseñada para situarse en la base de la arquitectura de tu aplicación. Gestiona peticiones y respuestas raw, dejando deliberadamente el decoding a capas superiores del stack. Totalmente actualizada para Swift 6 con Strict Concurrency, garantizando seguridad en entornos de concurrencia moderna.`,
+    thumbnail: '/projects/swiftynetworking-thumb.jpg',
+    images: [],
+    technologies: ['Swift', 'iOS', 'Swift 6', 'Strict Concurrency', 'SPM'],
+    category: 'Open Source',
+    role: 'Creador y Mantenedor',
+    duration: 'Ongoing',
+    githubUrl: 'https://github.com/amayuelas/SwiftyNetworking',
     featured: true,
     highlights: [
-      'Processed $2M+ in transactions',
-      '99.9% uptime over 2 years',
-      '50ms average API response time',
-      'Handles 10K+ concurrent users',
+      'Compatible con Swift 6 y Strict Concurrency',
+      'Arquitectura minimalista y extensible',
+      'Diseñado para integrarse en cualquier stack iOS',
+      'Open source con releases regulares',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // FEATURED PROJECT 2
-  // ---------------------------------------------------------------------------
   {
     id: 'proj-2',
-    slug: 'task-management-app',
-    title: 'TaskFlow - Task Management',
+    slug: 'app-carrefour-espana',
+    title: 'App Carrefour España',
     description:
-      'Collaborative task management application with real-time updates and team features.',
-    longDescription: `A modern task management application designed for remote teams. Features include 
-    real-time collaboration, Kanban boards, time tracking, and integrations with popular tools like 
-    Slack and GitHub.`,
-    thumbnail: '/projects/taskflow-thumb.jpg',
-    images: ['/projects/taskflow-1.jpg', '/projects/taskflow-2.jpg'],
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Docker'],
-    category: 'SaaS',
-    role: 'Full-Stack Developer',
-    duration: '4 months',
-    liveUrl: 'https://taskflow-demo.com',
-    githubUrl: 'https://github.com/alexjohnson/taskflow',
+      'Aplicación móvil Android e iOS de Carrefour España con millones de usuarios activos para compra online y fidelización.',
+    longDescription: `Contribución al desarrollo y mantenimiento de la app oficial de Carrefour España, una de las aplicaciones de retail más utilizadas en España. La app permite compra online, gestión de la tarjeta de fidelización, consulta de ofertas y seguimiento de pedidos, todo desde Android e iOS.`,
+    thumbnail: '/projects/carrefour-thumb.jpg',
+    images: [],
+    technologies: ['Kotlin', 'Swift', 'Jetpack Compose', 'SwiftUI', 'REST APIs', 'Google Cloud'],
+    category: 'Mobile App',
+    role: 'Senior Mobile Developer',
+    duration: '2020 – Actualidad',
     featured: true,
     highlights: [
-      '5K+ active users',
-      'Real-time collaboration',
-      '15+ third-party integrations',
-      '4.8/5 user rating',
+      'Millones de usuarios activos en Android e iOS',
+      'Integración con plataformas de IA y servicios cloud',
+      'Arquitectura limpia y modular',
+      'Parte del proceso de transformación digital de Carrefour España',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // FEATURED PROJECT 3
-  // ---------------------------------------------------------------------------
   {
     id: 'proj-3',
-    slug: 'analytics-dashboard',
-    title: 'DataViz Analytics Dashboard',
+    slug: 'be-real-talent-app',
+    title: 'Be Real Talent App',
     description:
-      'Interactive analytics dashboard with customizable charts and real-time data visualization.',
-    thumbnail: '/projects/analytics-thumb.jpg',
-    images: ['/projects/analytics-1.jpg', '/projects/analytics-2.jpg'],
-    technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'PostgreSQL'],
-    category: 'Data Visualization',
-    role: 'Frontend Lead',
-    duration: '3 months',
-    // liveUrl: undefined,  // No live demo
-    // githubUrl: undefined,  // Private repository
-    featured: true,
-    highlights: [
-      '20+ chart types',
-      'Export to PDF/Excel',
-      'Custom report builder',
-      'Role-based access control',
-    ],
-  },
-
-  // ---------------------------------------------------------------------------
-  // NON-FEATURED PROJECT
-  // ---------------------------------------------------------------------------
-  {
-    id: 'proj-4',
-    slug: 'mobile-fitness-app',
-    title: 'FitTrack Mobile App',
-    description:
-      'Cross-platform fitness tracking application with workout plans and progress analytics.',
-    thumbnail: '/projects/fitness-thumb.jpg',
-    images: ['/projects/fitness-1.jpg', '/projects/fitness-2.jpg'],
-    technologies: ['React Native', 'TypeScript', 'Firebase', 'Node.js'],
+      'Plataforma mobile para conectar empresas con talento tecnológico. Desarrollo de funcionalidades clave desde las etapas iniciales del producto.',
+    longDescription: `Desarrollo de parte de las funcionalidades de la aplicación Be Real Talent, una startup de Madrid que conecta empresas con perfiles tecnológicos. Trabajo en entorno ágil con foco en la calidad y el cumplimiento de plazos.`,
+    thumbnail: '/projects/beretalent-thumb.jpg',
+    images: [],
+    technologies: ['Android', 'Kotlin', 'iOS', 'Swift', 'REST APIs'],
     category: 'Mobile App',
     role: 'Mobile Developer',
-    duration: '5 months',
-    // liveUrl: undefined,  // App store link would go here
-    githubUrl: 'https://github.com/alexjohnson/fittrack',
+    duration: '2018 – 2019',
     featured: false,
     highlights: [
-      'iOS & Android support',
-      'Offline-first architecture',
-      'Wearable device integration',
-      '10K+ downloads',
+      'Desarrollo responsable y en tiempo de las funcionalidades',
+      'Trabajo en startup en etapas tempranas del producto',
+      'Apps nativas Android e iOS',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // NON-FEATURED PROJECT
-  // ---------------------------------------------------------------------------
   {
-    id: 'proj-5',
-    slug: 'open-source-cli',
-    title: 'DevToolkit CLI',
+    id: 'proj-4',
+    slug: 'web-scraping-selenium-java',
+    title: 'Web Scraping + Traducción con Selenium & Java',
     description:
-      'Open-source command-line toolkit for developers with code generation and automation.',
-    thumbnail: '/projects/cli-thumb.jpg',
-    images: ['/projects/cli-1.jpg'],
-    technologies: ['Go', 'Cobra', 'Docker'],
-    category: 'Developer Tools',
-    role: 'Creator & Maintainer',
-    duration: 'Ongoing',
-    // liveUrl: undefined,  // CLI tools usually don't have live URLs
-    githubUrl: 'https://github.com/alexjohnson/devtoolkit',
+      'Proyecto de automatización que extrae noticias en español de El País, valida el idioma y las traduce al inglés mediante RapidAPI.',
+    longDescription: `Proyecto de automatización que combina Selenium para web scraping, detección de idioma y traducción automática usando RapidAPI. Implementado en Java con Cucumber para testing de aceptación.`,
+    thumbnail: '/projects/scraping-thumb.jpg',
+    images: [],
+    technologies: ['Java', 'Selenium', 'Cucumber', 'RapidAPI', 'REST APIs'],
+    category: 'Personal Project',
+    role: 'Developer',
+    duration: '1 mes',
     featured: false,
     highlights: [
-      '2K+ GitHub stars',
-      '500+ contributors',
-      'Used by 100+ companies',
-      'Weekly releases',
+      'Scraping de noticias desde El País',
+      'Detección y validación de idioma',
+      'Traducción automática vía RapidAPI',
+      'Testing con Cucumber',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // ADD MORE PROJECTS HERE
-  // ---------------------------------------------------------------------------
-  // {
-  //   id: 'proj-6',
-  //   slug: 'your-project-slug',
-  //   title: 'Your Project Title',
-  //   description: 'Short description of your project...',
-  //   longDescription: 'Detailed description...',  // Optional
-  //   thumbnail: '/projects/your-project-thumb.jpg',
-  //   images: ['/projects/your-project-1.jpg'],
-  //   technologies: ['Tech1', 'Tech2', 'Tech3'],
-  //   category: 'Web Application',
-  //   role: 'Your Role',
-  //   duration: '3 months',
-  //   liveUrl: 'https://your-project.com',  // Optional
-  //   githubUrl: 'https://github.com/you/project',  // Optional
-  //   featured: false,
-  //   highlights: [
-  //     'Highlight 1 with metrics',
-  //     'Highlight 2',
-  //   ],
-  // },
 ];
 
 // =============================================================================

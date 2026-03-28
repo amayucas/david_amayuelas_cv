@@ -96,36 +96,33 @@ export const profile: Profile = {
   // -------------------------------------------------------------------------
   // BASIC INFO (Required)
   // -------------------------------------------------------------------------
-  name: 'Alex Johnson',
-  title: 'Senior Software Engineer',
+  name: 'David Amayuelas Díaz',
+  title: 'Senior Mobile Developer (Android & iOS)',
   photo: '/images/profile.jpg', // Set to '' to hide photo
-  email: 'alex.johnson@example.com',
-  location: 'San Francisco, CA',
+  email: 'david@amayuelas.dev',
+  location: 'Madrid, España',
 
   // -------------------------------------------------------------------------
   // CONTACT & SOCIAL (Optional - remove or set to undefined if not needed)
   // -------------------------------------------------------------------------
-  phone: '+1 (555) 123-4567',
-  website: 'https://alexjohnson.dev',
-  linkedin: 'https://linkedin.com/in/alexjohnson',
-  github: 'https://github.com/alexjohnson',
-  twitter: 'https://twitter.com/alexjohnson',
+  linkedin: 'https://linkedin.com/in/amayuelas',
+  github: 'https://github.com/amayuelas',
 
   // -------------------------------------------------------------------------
   // PROFESSIONAL SUMMARY
   // Keep this concise: 2-4 sentences that capture who you are professionally
   // -------------------------------------------------------------------------
-  summary: `Results-driven software engineer with 8+ years of experience building scalable web applications. Passionate about clean code, performance optimization, and mentoring junior developers. Expert in React, TypeScript, and cloud architecture.`,
+  summary: `Si buscas un desarrollador mobile con una sólida base tecnológica y pasión por crear experiencias digitales de primer nivel, has llegado al lugar correcto. Senior Mobile Developer especializado en Android e iOS con amplia experiencia en Kotlin, Swift y arquitecturas limpias. Actualmente en Carrefour España, contribuyendo a la transformación digital de uno de los mayores retailers europeos. Comprometido con el código limpio, la innovación continua y las buenas prácticas de desarrollo.`,
 
   // -------------------------------------------------------------------------
   // KEY HIGHLIGHTS
   // 3-5 achievement statements with metrics when possible
   // -------------------------------------------------------------------------
   highlights: [
-    'Led development of platform serving 1M+ users',
-    'Reduced page load time by 60%',
-    'Managed team of 5 engineers',
-    'Speaker at 3 tech conferences',
+    'Senior Mobile Developer en Carrefour España',
+    'Desarrollo de apps Android e iOS con millones de usuarios',
+    'Especialista en Kotlin, Swift y React Native',
+    'Formación continua: IA, Cloud y arquitecturas modernas',
   ],
 };
 

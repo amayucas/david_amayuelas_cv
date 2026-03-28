@@ -40,11 +40,14 @@ The template is fully implemented with all core sections working. It's ready for
 
 ## Current Focus
 
-The template is complete. The focus now is on:
-1. Helping users customize content for their specific background
-2. Adjusting colors/branding as needed
-3. Toggling features on/off based on user needs
-4. Adding portfolio projects
+Template personalized for **David Amayuelas Díaz** (Senior Mobile Developer, Carrefour España, Madrid).
+
+Pending:
+1. Add real profile photo to `public/images/profile.jpg`
+2. Add project thumbnail images to `public/projects/`
+3. Update `profile.email` with real email address if different
+4. Update GitHub URL in `profile.ts` with actual GitHub username
+5. Set real `siteUrl` in `site.config.ts` once deployed
 
 ## Quick Customization Guide
 
@@ -98,3 +101,4 @@ Edit `src/config/site.config.ts` → `features`:
 | Date | Activity |
 |------|----------|
 | 2026-01-22 | Memory bank updated to match .kilocode standard structure |
+| 2026-03-28 | Full personalization with David Amayuelas Díaz's LinkedIn data: profile, experience (Carrefour España + Be Real Talent), skills (Mobile-first: Kotlin/Swift/Android/iOS), education (UPM), 10 certifications, 4 projects, languages (ES/EN/ZH), green theme |

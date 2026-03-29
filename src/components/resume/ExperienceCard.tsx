@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Badge } from '@/components/ui';
 import type { Experience } from '@/data/experience';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -26,11 +25,9 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         {/* Company Logo */}
         <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
           {experience.companyLogo ? (
-            <Image
+            <img
               src={experience.companyLogo}
               alt={experience.company}
-              width={48}
-              height={48}
               className="object-contain w-full h-full p-1"
             />
           ) : (

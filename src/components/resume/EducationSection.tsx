@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Award } from 'lucide-react';
 import { education } from '@/data/education';
@@ -26,11 +25,9 @@ export function EducationSection() {
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
                     {edu.schoolLogo ? (
-                      <Image
+                      <img
                         src={edu.schoolLogo}
                         alt={edu.school}
-                        width={48}
-                        height={48}
                         className="object-contain w-full h-full p-1"
                       />
                     ) : (

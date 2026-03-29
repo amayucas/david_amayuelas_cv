@@ -205,40 +205,40 @@ export const skills: Skill[] = [
   // IA / LLM
   // ---------------------------------------------------------------------------
   {
-    name: 'OpenAI API / GPT',
-    level: 78,
-    category: 'IA / LLM',
-    yearsOfExperience: 2,
-  },
-  {
-    name: 'LangChain',
-    level: 70,
-    category: 'IA / LLM',
-    yearsOfExperience: 1,
-  },
-  {
     name: 'Prompt Engineering',
     level: 82,
     category: 'IA / LLM',
     yearsOfExperience: 2,
   },
   {
-    name: 'Hugging Face Transformers',
-    level: 65,
+    name: 'OpenAI API / GPT',
+    level: 78,
+    category: 'IA / LLM',
+    yearsOfExperience: 2,
+  },
+  {
+    name: 'Google Gemini / Gemini CLI',
+    level: 75,
     category: 'IA / LLM',
     yearsOfExperience: 1,
   },
   {
-    name: 'RAG (Retrieval-Augmented Generation)',
+    name: 'Claude Code',
+    level: 70,
+    category: 'IA / LLM',
+    yearsOfExperience: 1,
+  },
+  {
+    name: 'Codex',
     level: 68,
     category: 'IA / LLM',
     yearsOfExperience: 1,
   },
   {
-    name: 'TensorFlow / ML Kit',
-    level: 72,
+    name: 'OpenClaw',
+    level: 65,
     category: 'IA / LLM',
-    yearsOfExperience: 3,
+    yearsOfExperience: 1,
   },
 
   // ---------------------------------------------------------------------------

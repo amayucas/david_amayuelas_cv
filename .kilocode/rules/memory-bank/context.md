@@ -20,6 +20,9 @@ The template is fully implemented with all core sections working. It's ready for
 - [x] Dark mode support
 - [x] Centralized configuration in site.config.ts
 - [x] Memory bank migrated to .kilocode/rules/memory-bank/
+- [x] Multi-language support (ES/EN) with language toggle
+- [x] Profile photo from external URL
+- [x] Twitter removed from social links
 
 ## Components Implemented
 
@@ -40,14 +43,11 @@ The template is fully implemented with all core sections working. It's ready for
 
 ## Current Focus
 
-Template personalized for **David Amayuelas Díaz** (Senior Mobile Developer, Carrefour España, Madrid).
+Template personalized for **David Amayuelas Díaz** (Senior Mobile Developer, Carrefour España, Madrid) with full i18n support (ES/EN).
 
 Pending:
-1. Add real profile photo to `public/images/profile.jpg`
-2. Add project thumbnail images to `public/projects/`
-3. Update `profile.email` with real email address if different
-4. Update GitHub URL in `profile.ts` with actual GitHub username
-5. Set real `siteUrl` in `site.config.ts` once deployed
+1. Add project thumbnail images to `public/projects/`
+2. Set real `siteUrl` in `site.config.ts` once deployed
 
 ## Quick Customization Guide
 
@@ -83,10 +83,11 @@ Edit `src/config/site.config.ts` → `features`:
 
 ## Known Considerations
 
-- Profile image expects `/images/profile.jpg` → Add real photo
+- Profile photo uses external URL from kiloapps.io
 - Project thumbnails expect `/projects/` images
 - Contact form needs backend integration for email
 - Avatar images use placeholders → Replace with real photos
+- Language preference persisted in localStorage
 
 ## Pending Improvements (Optional)
 
@@ -94,7 +95,15 @@ Edit `src/config/site.config.ts` → `features`:
 - [ ] Add skills chart visualization
 - [ ] Add testimonials/recommendations section
 - [ ] Add blog/articles integration
-- [ ] Add multi-language support
+- [ ] Add project thumbnail images to `public/projects/`
+
+## Key Files Added
+
+| File | Purpose |
+|------|---------|
+| `src/lib/translations.ts` | ES/EN translation strings |
+| `src/lib/LanguageContext.tsx` | React context for language state (localStorage persistence) |
+| `src/components/print/PrintContent.tsx` | Client component for translated print page |
 
 ## Session History
 
@@ -102,3 +111,4 @@ Edit `src/config/site.config.ts` → `features`:
 |------|----------|
 | 2026-01-22 | Memory bank updated to match .kilocode standard structure |
 | 2026-03-28 | Full personalization with David Amayuelas Díaz's LinkedIn data: profile, experience (Carrefour España + Be Real Talent), skills (Mobile-first: Kotlin/Swift/Android/iOS), education (UPM), 10 certifications, 4 projects, languages (ES/EN/ZH), green theme |
+| 2026-03-29 | Added i18n support (ES/EN) with language toggle button, profile photo from external URL, removed Twitter from social links, all UI text translated to Spanish as default |

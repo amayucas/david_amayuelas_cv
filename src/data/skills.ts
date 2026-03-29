@@ -85,6 +85,7 @@ export const skillCategories: string[] = [
   'Móvil',
   'Lenguajes',
   'Backend',
+  'IA / LLM',
   'Cloud',
   'DevOps',
 ];
@@ -197,6 +198,46 @@ export const skills: Skill[] = [
     name: 'MongoDB',
     level: 70,
     category: 'Backend',
+    yearsOfExperience: 3,
+  },
+
+  // ---------------------------------------------------------------------------
+  // IA / LLM
+  // ---------------------------------------------------------------------------
+  {
+    name: 'OpenAI API / GPT',
+    level: 78,
+    category: 'IA / LLM',
+    yearsOfExperience: 2,
+  },
+  {
+    name: 'LangChain',
+    level: 70,
+    category: 'IA / LLM',
+    yearsOfExperience: 1,
+  },
+  {
+    name: 'Prompt Engineering',
+    level: 82,
+    category: 'IA / LLM',
+    yearsOfExperience: 2,
+  },
+  {
+    name: 'Hugging Face Transformers',
+    level: 65,
+    category: 'IA / LLM',
+    yearsOfExperience: 1,
+  },
+  {
+    name: 'RAG (Retrieval-Augmented Generation)',
+    level: 68,
+    category: 'IA / LLM',
+    yearsOfExperience: 1,
+  },
+  {
+    name: 'TensorFlow / ML Kit',
+    level: 72,
+    category: 'IA / LLM',
     yearsOfExperience: 3,
   },
 

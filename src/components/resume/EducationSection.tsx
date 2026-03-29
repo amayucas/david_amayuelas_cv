@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Award } from 'lucide-react';
 import { education } from '@/data/education';
@@ -23,8 +24,18 @@ export function EducationSection() {
             <Card hover>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    {edu.schoolLogo ? (
+                      <Image
+                        src={edu.schoolLogo}
+                        alt={edu.school}
+                        width={48}
+                        height={48}
+                        className="object-contain w-full h-full p-1"
+                      />
+                    ) : (
+                      <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -37,6 +48,11 @@ export function EducationSection() {
                       <MapPin className="w-4 h-4" />
                       {edu.location} · {edu.startYear} - {edu.endYear}
                     </div>
+                    {edu.description && (
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                        {edu.description}
+                      </p>
+                    )}
                     {edu.gpa && (
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                         {t('education.gpa')}: {edu.gpa}

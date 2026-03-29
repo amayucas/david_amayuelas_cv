@@ -78,6 +78,12 @@ export interface Education {
    * List courses relevant to your career
    */
   relevantCourses?: string[];
+
+  /**
+   * Description (optional)
+   * Additional information about the education entry
+   */
+  description?: string;
 }
 
 /**
@@ -159,6 +165,7 @@ export const education: Education[] = [
     degree: 'Grado / Ingeniería',
     field: 'Ingeniería Informática',
     school: 'Universidad Politécnica de Madrid',
+    schoolLogo: '/logos/upm.png',
     location: 'Madrid, España',
     startYear: 2015,
     endYear: 2020,
@@ -169,6 +176,17 @@ export const education: Education[] = [
       'Ingeniería del Software',
       'Bases de Datos',
     ],
+  },
+  {
+    id: 'edu-2',
+    degree: 'Becario',
+    field: 'Ingeniería de Software Informático',
+    school: 'Tongji University',
+    schoolLogo: '/logos/tongji.svg',
+    location: 'Shanghai, China',
+    startYear: 2018,
+    endYear: 2019,
+    description: 'Beca de un semestre en la Tongji University.',
   },
 ];
 

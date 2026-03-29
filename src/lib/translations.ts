@@ -121,6 +121,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'category.Móvil': 'Móvil',
     'category.Lenguajes': 'Lenguajes',
     'category.Backend': 'Backend',
+    'category.IA / LLM': 'IA / LLM',
     'category.Cloud': 'Cloud',
     'category.DevOps': 'DevOps',
 

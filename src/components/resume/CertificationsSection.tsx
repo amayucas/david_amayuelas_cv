@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, Calendar } from 'lucide-react';
 import { certifications } from '@/data/education';
-import { Section, Card, CardContent, Badge } from '@/components/ui';
+import { Section, Card, CardContent } from '@/components/ui';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export function CertificationsSection() {
@@ -53,7 +53,7 @@ export function CertificationsSection() {
                 </div>
 
                 <div className="mt-auto">
-                  {cert.credentialUrl ? (
+                  {cert.credentialUrl && (
                     <a
                       href={cert.credentialUrl}
                       target="_blank"
@@ -63,12 +63,6 @@ export function CertificationsSection() {
                       {t('certifications.viewCredential')}
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
-                  ) : (
-                    cert.credentialId && (
-                      <Badge variant="secondary" size="sm">
-                        ID: {cert.credentialId}
-                      </Badge>
-                    )
                   )}
                 </div>
               </CardContent>

@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Award } from 'lucide-react';
 import { education } from '@/data/education';
 import { Section, Badge, Card, CardContent } from '@/components/ui';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function EducationSection() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="education" title="Education" subtitle="Academic background and qualifications">
+    <Section id="education" title={t('education.title')} subtitle={t('education.subtitle')}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {education.map((edu, index) => (
           <motion.div
@@ -25,7 +28,7 @@ export function EducationSection() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 dark:text-white">
-                      {edu.degree} in {edu.field}
+                      {edu.degree} {t('education.in')} {edu.field}
                     </h3>
                     <p className="text-blue-600 dark:text-blue-400 font-medium">
                       {edu.school}

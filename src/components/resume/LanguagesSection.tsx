@@ -1,8 +1,18 @@
+'use client';
+
 import { Globe } from 'lucide-react';
 import { languages } from '@/data/skills';
 import { Badge } from '@/components/ui';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function LanguagesSection() {
+  const { t, locale } = useLanguage();
+
+  const levelLabels: Record<string, Record<string, string>> = {
+    es: { Native: 'Nativo', Professional: 'Profesional', Basic: 'Básico' },
+    en: { Native: 'Native', Professional: 'Professional', Basic: 'Basic' },
+  };
+
   const levelColors: Record<string, 'success' | 'default' | 'secondary'> = {
     Native: 'success',
     Professional: 'default',
@@ -13,7 +23,7 @@ export function LanguagesSection() {
     <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
       <h3 className="font-semibold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
         <Globe className="w-5 h-5 text-gray-400" />
-        Languages
+        {t('languages.title')}
       </h3>
       <div className="flex flex-wrap gap-3">
         {languages.map((lang) => (
@@ -25,7 +35,7 @@ export function LanguagesSection() {
               {lang.name}
             </span>
             <Badge variant={levelColors[lang.level] || 'secondary'} size="sm">
-              {lang.level}
+              {levelLabels[locale]?.[lang.level] || lang.level}
             </Badge>
           </div>
         ))}

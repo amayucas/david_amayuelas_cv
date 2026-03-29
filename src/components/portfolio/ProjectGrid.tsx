@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects, projectCategories, getProjectsByCategory } from '@/data/projects';
 import { ProjectCard } from './ProjectCard';
 import { ProjectFilters } from './ProjectFilters';
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface ProjectGridProps {
   showFilters?: boolean;
@@ -14,6 +15,7 @@ interface ProjectGridProps {
 
 export function ProjectGrid({ showFilters = true, limit, featuredOnly = false }: ProjectGridProps) {
   const [activeCategory, setActiveCategory] = useState('All');
+  const { t } = useLanguage();
 
   let displayProjects = featuredOnly
     ? projects.filter((p) => p.featured)
@@ -53,7 +55,7 @@ export function ProjectGrid({ showFilters = true, limit, featuredOnly = false }:
       {displayProjects.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 dark:text-gray-400">
-            No projects found in this category.
+            {t('portfolio.noProjects')}
           </p>
         </div>
       )}

@@ -1,7 +1,10 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Container, Section } from '@/components/ui';
 import { ProjectGrid } from '@/components/portfolio';
 import { profile } from '@/data/profile';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export const metadata: Metadata = {
   title: `Portfolio | ${profile.name}`,
@@ -9,11 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
+  const { t } = useLanguage();
+
   return (
     <Container size="lg" className="py-12">
       <Section
-        title="My Portfolio"
-        subtitle="Explore my projects and work"
+        title={t('portfolio.title')}
+        subtitle={t('portfolio.subtitle')}
       >
         <ProjectGrid showFilters />
       </Section>

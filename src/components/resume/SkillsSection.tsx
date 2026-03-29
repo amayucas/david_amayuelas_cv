@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { skillCategories, getSkillsByCategory } from '@/data/skills';
 import { Section } from '@/components/ui';
+import { useLanguage } from '@/lib/LanguageContext';
 import type { Skill } from '@/data/skills';
 
 // Determine skill level color based on proficiency
@@ -117,23 +118,25 @@ function SkillCategory({ category, index }: { category: string; index: number })
 }
 
 export function SkillsSection() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="skills" title="Skills & Expertise" subtitle="Technologies and tools I work with">
+    <Section id="skills" title={t('skills.title')} subtitle={t('skills.subtitle')}>
       {/* Legend */}
       <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-800">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-          <span className="text-gray-500 dark:text-gray-400 font-medium">Proficiency:</span>
+          <span className="text-gray-500 dark:text-gray-400 font-medium">{t('skills.proficiency')}</span>
           <span className="inline-flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            <span className="text-gray-600 dark:text-gray-400">Expert (90%+)</span>
+            <span className="text-gray-600 dark:text-gray-400">{t('skills.expert')}</span>
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-            <span className="text-gray-600 dark:text-gray-400">Advanced (75%+)</span>
+            <span className="text-gray-600 dark:text-gray-400">{t('skills.advanced')}</span>
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-            <span className="text-gray-600 dark:text-gray-400">Intermediate (60%+)</span>
+            <span className="text-gray-600 dark:text-gray-400">{t('skills.intermediate')}</span>
           </span>
         </div>
       </div>

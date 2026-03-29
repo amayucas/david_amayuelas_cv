@@ -1,13 +1,19 @@
+'use client';
+
 import { Badge } from '@/components/ui';
 import type { Experience } from '@/data/experience';
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface ExperienceCardProps {
   experience: Experience;
 }
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
+  const { t, locale } = useLanguage();
+
   const formatDate = (date: string) => {
-    return new Date(date + '-01').toLocaleDateString('en-US', {
+    const localeCode = locale === 'es' ? 'es-ES' : 'en-US';
+    return new Date(date + '-01').toLocaleDateString(localeCode, {
       month: 'short',
       year: 'numeric',
     });
@@ -32,7 +38,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-500">
             {formatDate(experience.startDate)} –{' '}
-            {experience.current ? 'Present' : formatDate(experience.endDate!)}
+            {experience.current ? t('experience.present') : formatDate(experience.endDate!)}
             {' · '}{experience.location}
             {' · '}<span className="capitalize">{experience.type}</span>
           </p>

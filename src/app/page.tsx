@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from '@/components/ui';
 import {
   ProfileHeader,
@@ -13,8 +15,11 @@ import { ProjectGrid } from '@/components/portfolio';
 import { Section } from '@/components/ui';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <Container size="lg" className="py-12">
       {/* About Section */}
@@ -41,8 +46,8 @@ export default function HomePage() {
       {/* Featured Projects */}
       <Section 
         id="portfolio-preview" 
-        title="Featured Projects" 
-        subtitle="A selection of my recent work"
+        title={t('portfolio.featuredProjects')} 
+        subtitle={t('portfolio.featuredSubtitle')}
       >
         <ProjectGrid featuredOnly limit={3} showFilters={false} />
         <div className="text-center mt-8">
@@ -50,7 +55,7 @@ export default function HomePage() {
             href="/portfolio"
             className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
           >
-            View All Projects
+            {t('portfolio.viewAll')}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

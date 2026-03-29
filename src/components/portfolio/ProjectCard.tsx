@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Badge, Button } from '@/components/ui';
 import type { Project } from '@/data/projects';
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
@@ -13,6 +14,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -66,7 +68,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Featured badge */}
         {project.featured && (
           <div className="absolute top-3 left-3">
-            <Badge variant="warning" size="sm">Featured</Badge>
+            <Badge variant="warning" size="sm">{t('portfolio.featured')}</Badge>
           </div>
         )}
       </div>
@@ -103,7 +105,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={`/portfolio/${project.slug}`}
           className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
         >
-          View Details
+          {t('portfolio.viewDetails')}
           <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

@@ -214,7 +214,7 @@ export const siteConfig: SiteConfig = {
       name: 'Twitter',
       icon: 'Twitter',
       urlPattern: 'https://twitter.com/{{username}}',
-      enabled: true,
+      enabled: false,
     },
     instagram: {
       name: 'Instagram',
@@ -262,8 +262,8 @@ export const siteConfig: SiteConfig = {
   // ---------------------------------------------------------------------------
   contactForm: {
     endpoint: '/api/contact',
-    successMessage: 'Thank you! Your message has been sent successfully.',
-    errorMessage: 'Oops! Something went wrong. Please try again later.',
+    successMessage: '¡Gracias! Tu mensaje se ha enviado correctamente.',
+    errorMessage: '¡Ups! Algo ha salido mal. Por favor, inténtalo de nuevo más tarde.',
   },
 };
 

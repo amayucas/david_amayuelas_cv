@@ -3,21 +3,24 @@
 import Link from 'next/link';
 import { User, Briefcase, Code, GraduationCap, Folder, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { href: '/#about', label: 'About', icon: User },
-  { href: '/#experience', label: 'Experience', icon: Briefcase },
-  { href: '/#skills', label: 'Skills', icon: Code },
-  { href: '/#education', label: 'Education', icon: GraduationCap },
-  { href: '/portfolio', label: 'Portfolio', icon: Folder },
-  { href: '/#contact', label: 'Contact', icon: Mail },
-];
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface SideNavProps {
   className?: string;
 }
 
 export function SideNav({ className }: SideNavProps) {
+  const { t } = useLanguage();
+
+  const navItems = [
+    { href: '/#about', label: t('nav.about'), icon: User },
+    { href: '/#experience', label: t('nav.experience'), icon: Briefcase },
+    { href: '/#skills', label: t('nav.skills'), icon: Code },
+    { href: '/#education', label: t('nav.education'), icon: GraduationCap },
+    { href: '/portfolio', label: t('nav.portfolio'), icon: Folder },
+    { href: '/#contact', label: t('nav.contact'), icon: Mail },
+  ];
+
   return (
     <nav
       className={cn(

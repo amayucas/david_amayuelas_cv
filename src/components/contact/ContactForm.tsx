@@ -7,19 +7,21 @@ import { z } from 'zod';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email'),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const { t } = useLanguage();
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t('contact.validation.name')),
+    email: z.string().email(t('contact.validation.email')),
+    subject: z.string().min(5, t('contact.validation.subject')),
+    message: z.string().min(10, t('contact.validation.message')),
+  });
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -49,7 +51,7 @@ export function ContactForm() {
       reset();
     } catch {
       setStatus('error');
-      setErrorMessage('Failed to send message. Please try again later.');
+      setErrorMessage(t('contact.error'));
     }
   };
 
@@ -60,13 +62,13 @@ export function ContactForm() {
           <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
         </div>
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-          Message Sent!
+          {t('contact.messageSent')}
         </h3>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Thank you for reaching out. I&apos;ll get back to you soon.
+          {t('contact.thankYou')}
         </p>
         <Button onClick={() => setStatus('idle')} variant="outline">
-          Send Another Message
+          {t('contact.sendAnother')}
         </Button>
       </div>
     );
@@ -85,7 +87,7 @@ export function ContactForm() {
         {/* Name */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Name
+            {t('contact.name')}
           </label>
           <input
             id="name"
@@ -97,7 +99,7 @@ export function ContactForm() {
                 ? 'border-red-300 dark:border-red-700'
                 : 'border-gray-300 dark:border-gray-700'
             )}
-            placeholder="Your name"
+            placeholder={t('contact.namePlaceholder')}
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
@@ -107,7 +109,7 @@ export function ContactForm() {
         {/* Email */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Email
+            {t('contact.email')}
           </label>
           <input
             id="email"
@@ -119,7 +121,7 @@ export function ContactForm() {
                 ? 'border-red-300 dark:border-red-700'
                 : 'border-gray-300 dark:border-gray-700'
             )}
-            placeholder="your@email.com"
+            placeholder={t('contact.emailPlaceholder')}
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -130,7 +132,7 @@ export function ContactForm() {
       {/* Subject */}
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Subject
+          {t('contact.subject')}
         </label>
         <input
           id="subject"
@@ -142,7 +144,7 @@ export function ContactForm() {
               ? 'border-red-300 dark:border-red-700'
               : 'border-gray-300 dark:border-gray-700'
           )}
-          placeholder="What is this about?"
+          placeholder={t('contact.subjectPlaceholder')}
         />
         {errors.subject && (
           <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
@@ -152,7 +154,7 @@ export function ContactForm() {
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Message
+          {t('contact.message')}
         </label>
         <textarea
           id="message"
@@ -164,7 +166,7 @@ export function ContactForm() {
               ? 'border-red-300 dark:border-red-700'
               : 'border-gray-300 dark:border-gray-700'
           )}
-          placeholder="Your message..."
+          placeholder={t('contact.messagePlaceholder')}
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
@@ -176,12 +178,12 @@ export function ContactForm() {
         {status === 'loading' ? (
           <>
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-            Sending...
+            {t('contact.sending')}
           </>
         ) : (
           <>
             <Send className="w-4 h-4 mr-2" />
-            Send Message
+            {t('contact.send')}
           </>
         )}
       </Button>

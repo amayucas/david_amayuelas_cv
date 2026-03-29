@@ -2,22 +2,24 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Globe } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { profile } from '@/data/profile';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { href: '/#about', label: 'About' },
-  { href: '/#experience', label: 'Experience' },
-  { href: '/#skills', label: 'Skills' },
-  { href: '/#education', label: 'Education' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/#contact', label: 'Contact' },
-];
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, locale, toggleLanguage } = useLanguage();
+
+  const navItems = [
+    { href: '/#about', label: t('nav.about') },
+    { href: '/#experience', label: t('nav.experience') },
+    { href: '/#skills', label: t('nav.skills') },
+    { href: '/#education', label: t('nav.education') },
+    { href: '/portfolio', label: t('nav.portfolio') },
+    { href: '/#contact', label: t('nav.contact') },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
@@ -41,8 +43,16 @@ export function Header() {
             ))}
             <Button href="/print" size="sm">
               <Download className="w-4 h-4 mr-2" />
-              Resume
+              {t('nav.resume')}
             </Button>
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border border-gray-300 dark:border-gray-700 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+              aria-label="Toggle language"
+            >
+              <Globe className="w-4 h-4" />
+              {locale === 'es' ? 'EN' : 'ES'}
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -73,11 +83,18 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="px-4 pt-2">
+            <div className="px-4 pt-2 flex flex-col gap-2">
               <Button href="/print" size="sm" className="w-full">
                 <Download className="w-4 h-4 mr-2" />
-                Download Resume
+                {t('nav.downloadResume')}
               </Button>
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center justify-center gap-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white border border-gray-300 dark:border-gray-700 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                <Globe className="w-4 h-4" />
+                {locale === 'es' ? 'English' : 'Español'}
+              </button>
             </div>
           </nav>
         </div>

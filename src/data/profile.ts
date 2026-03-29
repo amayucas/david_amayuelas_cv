@@ -98,7 +98,7 @@ export const profile: Profile = {
   // -------------------------------------------------------------------------
   name: 'David Amayuelas Díaz',
   title: 'Senior Mobile Developer (Android & iOS)',
-  photo: '/images/profile.jpg', // Set to '' to hide photo
+  photo: 'https://assets.kiloapps.io/user_f2265cf0-d981-441e-9bc9-9622ebe72bfb/b55f6ca2-ab5e-443d-aeba-53af00059716/61f26b4b-163c-40e4-bbad-9f3b0548c72f.jpg', // Profile photo
   email: 'amayudance@gmail.com',
   phone: '+34 682 131 939',
   location: 'Madrid, España',

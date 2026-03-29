@@ -1,26 +1,31 @@
+'use client';
+
 import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { profile } from '@/data/profile';
 import { Section, Card, CardContent } from '@/components/ui';
 import { ContactForm } from './ContactForm';
 import { SocialLinks } from './SocialLinks';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function ContactSection() {
+  const { t } = useLanguage();
+
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: 'Phone', value: profile.phone, href: `tel:${profile.phone}` },
-    { icon: MapPin, label: 'Location', value: profile.location },
-    { icon: Calendar, label: 'Availability', value: 'Open to opportunities' },
+    { icon: Mail, label: t('contact.email'), value: profile.email, href: `mailto:${profile.email}` },
+    { icon: Phone, label: t('contact.phone') || 'Teléfono', value: profile.phone, href: `tel:${profile.phone}` },
+    { icon: MapPin, label: t('contact.location'), value: profile.location },
+    { icon: Calendar, label: t('contact.availability'), value: t('contact.availabilityValue') },
   ];
 
   return (
-    <Section id="contact" title="Get In Touch" subtitle="Let's discuss your next project">
+    <Section id="contact" title={t('contact.title')} subtitle={t('contact.subtitle')}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Info */}
         <div className="lg:col-span-1">
           <Card>
             <CardContent className="p-6 space-y-6">
               <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
-                Contact Information
+                {t('contact.contactInfo')}
               </h3>
 
               <div className="space-y-4">
@@ -48,7 +53,7 @@ export function ContactSection() {
 
               <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-                  Connect with me
+                  {t('contact.connectWith')}
                 </p>
                 <SocialLinks size="md" />
               </div>
@@ -61,7 +66,7 @@ export function ContactSection() {
           <Card>
             <CardContent className="p-6">
               <h3 className="font-semibold text-lg text-gray-900 dark:text-white mb-6">
-                Send a Message
+                {t('contact.sendMessage')}
               </h3>
               <ContactForm />
             </CardContent>

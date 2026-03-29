@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 import { experience } from '@/data/experience';
 import { ExperienceCard } from './ExperienceCard';
 import { Section } from '@/components/ui';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export function ExperienceTimeline() {
+  const { t } = useLanguage();
+
   return (
-    <Section id="experience" title="Work Experience" subtitle="My professional journey">
+    <Section id="experience" title={t('experience.title')} subtitle={t('experience.subtitle')}>
       <div className="relative">
         {/* Timeline line */}
         <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 hidden md:block" />

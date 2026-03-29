@@ -12,7 +12,7 @@ export function ContactSection() {
 
   const contactInfo = [
     { icon: Mail, label: t('contact.email'), value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: t('contact.phone') || 'Teléfono', value: profile.phone, href: `tel:${profile.phone}` },
+    { icon: Phone, label: t('contact.phone'), value: profile.phone, href: `tel:${profile.phone}` },
     { icon: MapPin, label: t('contact.location'), value: profile.location },
     { icon: Calendar, label: t('contact.availability'), value: t('contact.availabilityValue') },
   ];

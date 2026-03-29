@@ -233,12 +233,9 @@ export const experience: Experience[] = [
       'Contribución al desarrollo de la plataforma de conexión entre empresas y talento',
     ],
     technologies: [
-      'Android',
-      'Kotlin',
-      'iOS',
-      'Swift',
       'REST APIs',
       'Git',
+      'JavaScript',
     ],
   },
 ];

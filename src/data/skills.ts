@@ -127,12 +127,6 @@ export const skills: Skill[] = [
     yearsOfExperience: 3,
   },
   {
-    name: 'React Native',
-    level: 78,
-    category: 'Móvil',
-    yearsOfExperience: 3,
-  },
-  {
     name: 'Clean Architecture / MVVM',
     level: 90,
     category: 'Móvil',

@@ -162,7 +162,7 @@ export interface Award {
 export const education: Education[] = [
   {
     id: 'edu-1',
-    degree: 'Grado / Ingeniería',
+    degree: 'Grado en Ingeniería Informática',
     field: 'Ingeniería Informática',
     school: 'Universidad Politécnica de Madrid',
     schoolLogo: '/logos/upm.png',

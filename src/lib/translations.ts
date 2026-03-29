@@ -199,6 +199,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'contact.sendMessage': 'Send a Message',
     'contact.name': 'Name',
     'contact.email': 'Email',
+    'contact.phone': 'Phone',
     'contact.subject': 'Subject',
     'contact.message': 'Message',
     'contact.send': 'Send Message',

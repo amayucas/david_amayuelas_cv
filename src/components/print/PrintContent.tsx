@@ -6,17 +6,11 @@ import { skillCategories, getSkillsByCategory, languages } from '@/data/skills';
 import { education, certifications } from '@/data/education';
 import { PrintButton } from '@/components/ui/PrintButton';
 import { useLanguage } from '@/lib/LanguageContext';
+import { formatDateLocale } from '@/lib/date';
 
 export function PrintContent() {
   const { t, locale } = useLanguage();
-
-  const formatDate = (date: string) => {
-    const localeCode = locale === 'es' ? 'es-ES' : 'en-US';
-    return new Date(date + '-01').toLocaleDateString(localeCode, {
-      month: 'short',
-      year: 'numeric',
-    });
-  };
+  const formatDate = (date: string) => formatDateLocale(date, locale);
 
   const levelLabels: Record<string, Record<string, string>> = {
     es: { Native: 'Nativo', Professional: 'Profesional', Basic: 'Básico' },

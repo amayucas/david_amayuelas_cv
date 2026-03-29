@@ -5,17 +5,11 @@ import { Award, ExternalLink, Calendar } from 'lucide-react';
 import { certifications } from '@/data/education';
 import { Section, Card, CardContent } from '@/components/ui';
 import { useLanguage } from '@/lib/LanguageContext';
+import { formatDateLocale } from '@/lib/date';
 
 export function CertificationsSection() {
   const { t, locale } = useLanguage();
-
-  const formatDate = (date: string) => {
-    const localeCode = locale === 'es' ? 'es-ES' : 'en-US';
-    return new Date(date + '-01').toLocaleDateString(localeCode, {
-      month: 'short',
-      year: 'numeric',
-    });
-  };
+  const formatDate = (date: string) => formatDateLocale(date, locale);
 
   return (
     <Section title={t('certifications.title')} subtitle={t('certifications.subtitle')}>

@@ -3,6 +3,7 @@
 import { Badge } from '@/components/ui';
 import type { Experience } from '@/data/experience';
 import { useLanguage } from '@/lib/LanguageContext';
+import { formatDateLocale } from '@/lib/date';
 
 interface ExperienceCardProps {
   experience: Experience;
@@ -10,14 +11,7 @@ interface ExperienceCardProps {
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   const { t, locale } = useLanguage();
-
-  const formatDate = (date: string) => {
-    const localeCode = locale === 'es' ? 'es-ES' : 'en-US';
-    return new Date(date + '-01').toLocaleDateString(localeCode, {
-      month: 'short',
-      year: 'numeric',
-    });
-  };
+  const formatDate = (date: string) => formatDateLocale(date, locale);
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-800">

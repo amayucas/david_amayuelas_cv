@@ -162,11 +162,12 @@ export interface Award {
 export const education: Education[] = [
   {
     id: 'edu-1',
-    degree: 'Grado en Ingeniería de Software',
-    field: 'Ingeniería de Software',
+    degree: 'Grado / Ingeniería',
+    field: 'Ingeniería Informática',
     school: 'Universidad Politécnica de Madrid',
     schoolLogo: '/logos/upm.png',
     location: 'Madrid, España',
+    description: 'Actividades y asociaciones: Asociación de estudiantes-Nostromus',
     startYear: 2015,
     endYear: 2020,
     relevantCourses: [

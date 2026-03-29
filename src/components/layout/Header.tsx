@@ -31,7 +31,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -58,7 +58,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            className="lg:hidden p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -68,7 +68,7 @@ export function Header() {
         {/* Mobile Navigation */}
         <div
           className={cn(
-            'md:hidden overflow-hidden transition-all duration-300',
+            'lg:hidden overflow-hidden transition-all duration-300',
             isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
           )}
         >

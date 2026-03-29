@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Badge } from '@/components/ui';
 import type { Experience } from '@/data/experience';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -22,11 +23,21 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-800">
       <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-4">
-        {/* Company Logo Placeholder */}
-        <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-          <span className="text-sm font-bold text-gray-400 dark:text-gray-500">
-            {experience.company.substring(0, 2).toUpperCase()}
-          </span>
+        {/* Company Logo */}
+        <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
+          {experience.companyLogo ? (
+            <Image
+              src={experience.companyLogo}
+              alt={experience.company}
+              width={48}
+              height={48}
+              className="object-contain w-full h-full p-1"
+            />
+          ) : (
+            <span className="text-sm font-bold text-gray-400 dark:text-gray-500">
+              {experience.company.substring(0, 2).toUpperCase()}
+            </span>
+          )}
         </div>
 
         <div className="flex-1">

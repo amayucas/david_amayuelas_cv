@@ -116,13 +116,11 @@ export interface Experience {
  * Keep positions in reverse chronological order (newest first).
  */
 export const experience: Experience[] = [
-  // ---------------------------------------------------------------------------
-  // CURRENT POSITION
-  // ---------------------------------------------------------------------------
   {
     id: 'exp-1',
     title: 'Senior Mobile Developer (Android & iOS)',
     company: 'Carrefour España',
+    companyLogo: '/logos/carrefour.png',
     location: 'Madrid, España',
     type: 'full-time',
     startDate: '2020-01',
@@ -148,25 +146,91 @@ export const experience: Experience[] = [
       'CI/CD',
     ],
   },
-
-  // ---------------------------------------------------------------------------
-  // PREVIOUS POSITION
-  // ---------------------------------------------------------------------------
   {
     id: 'exp-2',
-    title: 'Mobile Developer',
-    company: 'Be Real Talent',
+    title: 'Android Developer',
+    company: 'IMbox.me',
+    companyLogo: '/logos/imbox.png',
     location: 'Madrid, España',
     type: 'full-time',
-    startDate: '2018-01',
-    endDate: '2019-12',
+    startDate: '2020-02',
+    endDate: '2021-10',
     current: false,
     description:
-      'Desarrollo de funcionalidades de la app Be Real Talent, plataforma de conexión entre empresas y talento tecnológico.',
+      'Desarrollador y diseñador de la aplicación Android. Encargado de lidiar con varios equipos de desarrolladores.',
     achievements: [
-      'Desarrollo responsable y en tiempo de las funcionalidades asignadas de la plataforma',
-      'Trabajo en equipo en entorno startup con metodologías ágiles',
-      'Contribución al crecimiento de la app desde las etapas iniciales del producto',
+      'Desarrollo y diseño completo de la aplicación Android de mensajería empresarial',
+      'Coordinación con múltiples equipos de desarrollo en un entorno ágil',
+      'Más información sobre el servicio y enlaces a apps de clientes en https://www.imbox.me',
+    ],
+    technologies: [
+      'Android SDK',
+      'Java',
+      'Android',
+    ],
+  },
+  {
+    id: 'exp-3',
+    title: 'Mentor',
+    company: 'Telefónica',
+    companyLogo: '/logos/telefonica.png',
+    location: 'Madrid y alrededores, España',
+    type: 'part-time',
+    startDate: '2019-10',
+    endDate: '2020-02',
+    current: false,
+    description:
+      'Ponente en las Escuelas Talentum de Telefónica, compartiendo mi experiencia y visión sobre el futuro de la innovación en las escuelas.',
+    achievements: [
+      'Ponencias en Escuelas Talentum de Telefónica',
+      'Mentoría a jóvenes talentos en innovación y tecnología',
+      'Divulgación sobre el futuro de la innovación en la educación',
+    ],
+    technologies: [
+      'Mentoring',
+      'Innovación',
+      'Educación',
+    ],
+  },
+  {
+    id: 'exp-4',
+    title: 'Creador de Contenido',
+    company: 'TechGround',
+    companyLogo: '/logos/techground.png',
+    location: 'Área metropolitana de Madrid',
+    type: 'freelance',
+    startDate: '2014-11',
+    endDate: '2019-09',
+    current: false,
+    description:
+      'Periodista / Analista de la industria cubriendo eventos, noticias y entrevistas sobre el mundo mobile.',
+    achievements: [
+      'Cobertura de eventos y conferencias del sector mobile',
+      'Análisis de la industria y tendencias tecnológicas',
+      'Entrevistas a profesionales y líderes del sector tecnológico',
+    ],
+    technologies: [
+      'Periodismo tecnológico',
+      'Análisis de industria',
+      'Contenido digital',
+    ],
+  },
+  {
+    id: 'exp-5',
+    title: 'Programador de Software',
+    company: 'Be Real Talent',
+    companyLogo: '/logos/berealtalent.svg',
+    location: 'Madrid, España',
+    type: 'full-time',
+    startDate: '2017-03',
+    endDate: '2018-11',
+    current: false,
+    description:
+      'Desarrollo de funcionalidades e interfaces de la plataforma. Trabajando en una amplia variedad de proyectos.',
+    achievements: [
+      'Desarrollo de funcionalidades e interfaces de la plataforma',
+      'Trabajo en una amplia variedad de proyectos',
+      'Contribución al desarrollo de la plataforma de conexión entre empresas y talento',
     ],
     technologies: [
       'Android',

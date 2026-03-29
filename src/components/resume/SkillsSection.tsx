@@ -64,7 +64,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-function SkillChip({ skill }: { skill: Skill }) {
+function SkillChip({ skill, yearsSuffix }: { skill: Skill; yearsSuffix: string }) {
   const colors = getSkillColors(skill.level);
   
   return (
@@ -78,14 +78,14 @@ function SkillChip({ skill }: { skill: Skill }) {
       </span>
       {skill.yearsOfExperience && (
         <span className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">
-          {skill.yearsOfExperience}y
+          {skill.yearsOfExperience}{yearsSuffix}
         </span>
       )}
     </motion.div>
   );
 }
 
-function SkillCategory({ category, index }: { category: string; index: number }) {
+function SkillCategory({ category, index, categoryLabel, yearsSuffix }: { category: string; index: number; categoryLabel: string; yearsSuffix: string }) {
   const categorySkills = getSkillsByCategory(category);
   if (categorySkills.length === 0) return null;
 
@@ -105,12 +105,12 @@ function SkillCategory({ category, index }: { category: string; index: number })
           {categoryIcons[category]}
         </span>
         <h3 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide">
-          {category}
+          {categoryLabel}
         </h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {sortedSkills.map((skill) => (
-          <SkillChip key={skill.name} skill={skill} />
+          <SkillChip key={skill.name} skill={skill} yearsSuffix={yearsSuffix} />
         ))}
       </div>
     </motion.div>
@@ -144,7 +144,7 @@ export function SkillsSection() {
       {/* Skills Grid - 3 columns on large screens, 2 on medium, 1 on small */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skillCategories.map((category, index) => (
-          <SkillCategory key={category} category={category} index={index} />
+          <SkillCategory key={category} category={category} index={index} categoryLabel={t(`category.${category}`)} yearsSuffix={t('skills.yearsSuffix')} />
         ))}
       </div>
     </Section>

@@ -40,7 +40,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             {formatDate(experience.startDate)} –{' '}
             {experience.current ? t('experience.present') : formatDate(experience.endDate!)}
             {' · '}{experience.location}
-            {' · '}<span className="capitalize">{experience.type}</span>
+            {' · '}<span>{t(`employment.${experience.type}`)}</span>
           </p>
         </div>
       </div>

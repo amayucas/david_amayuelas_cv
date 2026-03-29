@@ -233,7 +233,7 @@ export function getAllTechnologies(): string[] {
  */
 export function formatExperienceDate(dateString: string): string {
   const date = new Date(dateString + '-01');
-  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  return date.toLocaleDateString('es-ES', { month: 'short', year: 'numeric' });
 }
 
 /**
@@ -251,10 +251,10 @@ export function getExperienceDuration(exp: Experience): string {
   const remainingMonths = months % 12;
 
   if (years === 0) {
-    return `${remainingMonths} mo`;
+    return `${remainingMonths} mes${remainingMonths !== 1 ? 'es' : ''}`;
   } else if (remainingMonths === 0) {
-    return `${years} yr`;
+    return `${years} año${years !== 1 ? 's' : ''}`;
   } else {
-    return `${years} yr ${remainingMonths} mo`;
+    return `${years} año${years !== 1 ? 's' : ''} ${remainingMonths} mes${remainingMonths !== 1 ? 'es' : ''}`;
   }
 }

@@ -39,7 +39,7 @@ export function EducationSection() {
                     </div>
                     {edu.gpa && (
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        GPA: {edu.gpa}
+                        {t('education.gpa')}: {edu.gpa}
                       </p>
                     )}
                     {edu.honors && edu.honors.length > 0 && (

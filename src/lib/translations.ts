@@ -110,6 +110,23 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // Language toggle
     'lang.switch': 'EN',
+
+    // Employment types
+    'employment.full-time': 'Tiempo completo',
+    'employment.part-time': 'Medio tiempo',
+    'employment.contract': 'Contrato',
+    'employment.freelance': 'Freelance',
+
+    // Skill categories
+    'category.Móvil': 'Móvil',
+    'category.Lenguajes': 'Lenguajes',
+    'category.Backend': 'Backend',
+    'category.Cloud': 'Cloud',
+    'category.DevOps': 'DevOps',
+
+    // Misc
+    'education.gpa': 'Promedio',
+    'skills.yearsSuffix': 'a',
   },
   en: {
     // Navigation
@@ -220,6 +237,23 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // Language toggle
     'lang.switch': 'ES',
+
+    // Employment types
+    'employment.full-time': 'Full-time',
+    'employment.part-time': 'Part-time',
+    'employment.contract': 'Contract',
+    'employment.freelance': 'Freelance',
+
+    // Skill categories
+    'category.Móvil': 'Mobile',
+    'category.Lenguajes': 'Languages',
+    'category.Backend': 'Backend',
+    'category.Cloud': 'Cloud',
+    'category.DevOps': 'DevOps',
+
+    // Misc
+    'education.gpa': 'GPA',
+    'skills.yearsSuffix': 'y',
   },
 };
 

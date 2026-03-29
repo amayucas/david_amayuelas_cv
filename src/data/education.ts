@@ -312,7 +312,7 @@ export function hasAwards(): boolean {
  * Format education as a string
  */
 export function formatEducation(edu: Education): string {
-  return `${edu.degree} in ${edu.field} from ${edu.school} (${edu.endYear})`;
+  return `${edu.degree} en ${edu.field} de ${edu.school} (${edu.endYear})`;
 }
 
 /**

@@ -82,11 +82,11 @@ export interface Language {
  * Add, remove, or rename categories as needed.
  */
 export const skillCategories: string[] = [
-  'Mobile',       // Mobile development
-  'Languages',    // Programming languages
-  'Backend',      // Backend frameworks & technologies
-  'Cloud',        // Cloud platforms & services
-  'DevOps',       // DevOps tools & practices
+  'Móvil',
+  'Lenguajes',
+  'Backend',
+  'Cloud',
+  'DevOps',
 ];
 
 /**
@@ -104,37 +104,37 @@ export const skills: Skill[] = [
   {
     name: 'Android (Kotlin)',
     level: 95,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 7,
   },
   {
     name: 'iOS (Swift)',
     level: 90,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 6,
   },
   {
     name: 'Jetpack Compose',
     level: 88,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 3,
   },
   {
     name: 'SwiftUI',
     level: 82,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 3,
   },
   {
     name: 'React Native',
     level: 78,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 3,
   },
   {
     name: 'Clean Architecture / MVVM',
     level: 90,
-    category: 'Mobile',
+    category: 'Móvil',
     yearsOfExperience: 5,
   },
 
@@ -144,31 +144,31 @@ export const skills: Skill[] = [
   {
     name: 'Kotlin',
     level: 95,
-    category: 'Languages',
+    category: 'Lenguajes',
     yearsOfExperience: 7,
   },
   {
     name: 'Swift',
     level: 90,
-    category: 'Languages',
+    category: 'Lenguajes',
     yearsOfExperience: 6,
   },
   {
     name: 'Java',
     level: 80,
-    category: 'Languages',
+    category: 'Lenguajes',
     yearsOfExperience: 5,
   },
   {
     name: 'JavaScript',
     level: 75,
-    category: 'Languages',
+    category: 'Lenguajes',
     yearsOfExperience: 4,
   },
   {
     name: 'Python',
     level: 65,
-    category: 'Languages',
+    category: 'Lenguajes',
     yearsOfExperience: 3,
   },
 
@@ -298,9 +298,9 @@ export function getAverageSkillLevel(): number {
  * Get proficiency label for a skill level
  */
 export function getSkillProficiencyLabel(level: number): string {
-  if (level >= 90) return 'Expert';
-  if (level >= 70) return 'Advanced';
-  if (level >= 50) return 'Intermediate';
-  if (level >= 30) return 'Basic';
-  return 'Beginner';
+  if (level >= 90) return 'Experto';
+  if (level >= 70) return 'Avanzado';
+  if (level >= 50) return 'Intermedio';
+  if (level >= 30) return 'Básico';
+  return 'Principiante';
 }

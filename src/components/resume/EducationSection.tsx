@@ -36,7 +36,7 @@ export function EducationSection() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 dark:text-white">
-                      {edu.degree} {t('education.in')} {edu.field}
+                      {edu.degree}{edu.field ? ` ${t('education.in')} ${edu.field}` : ''}
                     </h3>
                     <p className="text-blue-600 dark:text-blue-400 font-medium">
                       {edu.school}

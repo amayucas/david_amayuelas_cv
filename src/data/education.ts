@@ -163,7 +163,7 @@ export const education: Education[] = [
   {
     id: 'edu-1',
     degree: 'Grado en Ingeniería del Software',
-    field: 'Ingeniería del Software',
+    field: '',
     school: 'Universidad Politécnica de Madrid',
     schoolLogo: '/logos/upm.png',
     location: 'Madrid, España',
@@ -183,7 +183,7 @@ export const education: Education[] = [
     degree: 'Becario',
     field: 'Ingeniería de Software',
     school: 'Tongji University',
-    schoolLogo: '/logos/tongji.png',
+    schoolLogo: '/logos/tongji.svg',
     location: 'Shanghai, China',
     startYear: 2018,
     endYear: 2019,

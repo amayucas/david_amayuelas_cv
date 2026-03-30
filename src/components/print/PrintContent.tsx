@@ -89,7 +89,7 @@ export function PrintContent() {
           {education.map((edu) => (
             <div key={edu.id} className="flex justify-between">
               <div>
-                <h3 className="font-semibold">{edu.degree} {t('education.in')} {edu.field}</h3>
+                <h3 className="font-semibold">{edu.degree}{edu.field ? ` ${t('education.in')} ${edu.field}` : ''}</h3>
                 <p className="text-gray-600">{edu.school}</p>
               </div>
               <span className="text-sm text-gray-500">{edu.endYear}</span>

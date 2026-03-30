@@ -162,8 +162,8 @@ export interface Award {
 export const education: Education[] = [
   {
     id: 'edu-1',
-    degree: 'Grado en Ingeniería Informática',
-    field: 'Ingeniería Informática',
+    degree: 'Grado en Ingeniería del Software',
+    field: 'Ingeniería del Software',
     school: 'Universidad Politécnica de Madrid',
     schoolLogo: '/logos/upm.png',
     location: 'Madrid, España',
@@ -181,9 +181,9 @@ export const education: Education[] = [
   {
     id: 'edu-2',
     degree: 'Becario',
-    field: 'Ingeniería de Software Informático',
+    field: 'Ingeniería de Software',
     school: 'Tongji University',
-    schoolLogo: '/logos/tongji.svg',
+    schoolLogo: '/logos/tongji.png',
     location: 'Shanghai, China',
     startYear: 2018,
     endYear: 2019,

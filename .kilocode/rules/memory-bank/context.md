@@ -23,6 +23,7 @@ The template is fully implemented with all core sections working. It's ready for
 - [x] Multi-language support (ES/EN) with language toggle
 - [x] Profile photo from external URL
 - [x] Twitter removed from social links
+- [x] Contact form email integration via Resend API
 
 ## Components Implemented
 
@@ -85,9 +86,10 @@ Edit `src/config/site.config.ts` → `features`:
 
 - Profile photo uses external URL from kiloapps.io
 - Project thumbnails expect `/projects/` images
-- Contact form needs backend integration for email
+- Contact form requires Resend API key (see `.env.example`)
 - Avatar images use placeholders → Replace with real photos
 - Language preference persisted in localStorage
+- `<img>` tags used for logos/profile to avoid hydration issues (Safari workaround)
 
 ## Pending Improvements (Optional)
 
@@ -104,6 +106,8 @@ Edit `src/config/site.config.ts` → `features`:
 | `src/lib/translations.ts` | ES/EN translation strings |
 | `src/lib/LanguageContext.tsx` | React context for language state (localStorage persistence) |
 | `src/components/print/PrintContent.tsx` | Client component for translated print page |
+| `.env.example` | Environment variables template (Resend API key) |
+| `src/app/api/contact/route.ts` | Updated to send real emails via Resend |
 
 ## Session History
 
@@ -112,3 +116,4 @@ Edit `src/config/site.config.ts` → `features`:
 | 2026-01-22 | Memory bank updated to match .kilocode standard structure |
 | 2026-03-28 | Full personalization with David Amayuelas Díaz's LinkedIn data: profile, experience (Carrefour España + Be Real Talent), skills (Mobile-first: Kotlin/Swift/Android/iOS), education (UPM), 10 certifications, 4 projects, languages (ES/EN/ZH), green theme |
 | 2026-03-29 | Added i18n support (ES/EN) with language toggle button, profile photo from external URL, removed Twitter from social links, all UI text translated to Spanish as default |
+| 2026-04-20 | Implemented contact form email delivery via Resend API, added `.env.example` with required configuration |

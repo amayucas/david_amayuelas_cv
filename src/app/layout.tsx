@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Header, Footer, SideNav } from '@/components/layout';
 import { profile } from '@/data/profile';
 import { LanguageProvider } from '@/lib/LanguageContext';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -33,6 +34,7 @@ export default function RootLayout({
           <main className="pt-16">{children}</main>
           <Footer />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );

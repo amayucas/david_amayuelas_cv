@@ -266,6 +266,48 @@ export const certifications: Certification[] = [
     date: '2016-11',
     expirationDate: '2018-11',
   },
+  {
+    id: 'cert-11',
+    name: 'AI for App Building',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: 'Y7ASFRT7ZGJY',
+  },
+  {
+    id: 'cert-12',
+    name: 'AI for Data Analysis',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: 'GT2A0EX9YLUD',
+  },
+  {
+    id: 'cert-13',
+    name: 'AI for Content Creation',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: 'O5XJLCMV9LBH',
+  },
+  {
+    id: 'cert-14',
+    name: 'AI for Writing and Communicating',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: '66GQZZ7WAQXX',
+  },
+  {
+    id: 'cert-15',
+    name: 'AI for Research and Insights',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: '1AXB8CPMT0US',
+  },
+  {
+    id: 'cert-16',
+    name: 'AI for Brainstorming and Planning',
+    issuer: 'Google',
+    date: '2026-06',
+    credentialId: 'BMENNNGIRDEP',
+  },
 ];
 
 /**

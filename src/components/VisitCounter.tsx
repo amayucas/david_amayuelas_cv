@@ -11,7 +11,7 @@ export function VisitCounter() {
   useEffect(() => {
     let isMounted = true;
 
-    async function loadVisits() {
+    async function syncVisits() {
       try {
         if (typeof window !== 'undefined') {
           const hasCounted = sessionStorage.getItem('visit-counter-posted') === 'true';
@@ -34,7 +34,7 @@ export function VisitCounter() {
       }
     }
 
-    loadVisits();
+    syncVisits();
 
     return () => {
       isMounted = false;

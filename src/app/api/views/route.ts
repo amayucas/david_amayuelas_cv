@@ -32,7 +32,6 @@ async function saveViews(count: number) {
 
 export async function GET() {
   const views = await getViews();
-
   return Response.json({ views });
 }
 
@@ -41,6 +40,5 @@ export async function POST() {
   const nextViews = currentViews + 1;
 
   await saveViews(nextViews);
-
   return Response.json({ views: nextViews });
 }

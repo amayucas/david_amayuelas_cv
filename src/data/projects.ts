@@ -1,333 +1,290 @@
-/**
- * =============================================================================
- * PROJECTS DATA - Portfolio Projects
- * =============================================================================
- *
- * AI CUSTOMIZATION INSTRUCTIONS:
- * This file contains portfolio projects displayed in the Portfolio section.
- *
- * TO CUSTOMIZE:
- * 1. Replace example projects with your actual projects
- * 2. Mark your best projects as featured (featured: true)
- * 3. Include project images if available
- * 4. Add live demo and GitHub links where applicable
- *
- * TO ADD A NEW PROJECT:
- * Copy an existing entry and modify all fields. Make sure to:
- * - Use a unique ID (e.g., 'proj-6', 'proj-7')
- * - Create a URL-friendly slug (lowercase, hyphens, no spaces)
- * - Add at least a thumbnail image
- *
- * PROJECT CATEGORIES:
- * Choose from existing categories or add new ones to projectCategories array.
- *
- * IMAGES:
- * - Store images in /public/projects/
- * - Use paths like '/projects/project-name.jpg'
- * - Recommended size: 1200x630 for thumbnails
- * =============================================================================
- */
+import type { Localized } from '@/lib/localized';
 
-/**
- * Project entry type definition
- */
-export interface Project {
-  /** Unique identifier (e.g., 'proj-1', 'proj-2') */
+export type LocalizedText = Localized<string>;
+export type LocalizedTextList = Localized<string[]>;
+
+export interface Education {
   id: string;
-
-  /**
-   * URL-friendly slug for the project page
-   * Format: lowercase, hyphens instead of spaces
-   * Example: 'my-awesome-project'
-   */
-  slug: string;
-
-  /** Project title */
-  title: string;
-
-  /**
-   * Short description (1-2 sentences)
-   * Displayed in project cards
-   */
-  description: string;
-
-  /**
-   * Detailed description (optional)
-   * Displayed on the project detail page
-   */
-  longDescription?: string;
-
-  /**
-   * Thumbnail image path
-   * - Use '/projects/thumb.jpg' for local image
-   * - Use full URL for external image
-   */
-  thumbnail: string;
-
-  /**
-   * Additional project images (optional)
-   * For project detail page gallery
-   */
-  images: string[];
-
-  /**
-   * Technologies used in the project
-   * List frameworks, languages, and tools
-   */
-  technologies: string[];
-
-  /**
-   * Project category
-   * Must match one from projectCategories array
-   */
-  category: string;
-
-  /**
-   * Your role in the project
-   * Examples: "Lead Developer", "Frontend Developer", "Solo Project"
-   */
-  role: string;
-
-  /**
-   * Project duration
-   * Examples: "3 months", "6 weeks", "Ongoing"
-   */
-  duration: string;
-
-  /**
-   * Live project URL (optional)
-   * Link to deployed project
-   */
-  liveUrl?: string;
-
-  /**
-   * GitHub repository URL (optional)
-   * Link to source code
-   */
-  githubUrl?: string;
-
-  /**
-   * Is this a featured project?
-   * Featured projects are highlighted on the homepage
-   */
-  featured: boolean;
-
-  /**
-   * Key highlights/achievements
-   * Use metrics when possible (numbers, percentages)
-   */
-  highlights: string[];
+  degree: string | LocalizedText;
+  field: string | LocalizedText;
+  school: string | LocalizedText;
+  schoolLogo?: string;
+  location: string | LocalizedText;
+  startYear: number;
+  endYear: number;
+  gpa?: string;
+  honors?: string[] | LocalizedTextList;
+  relevantCourses?: string[] | LocalizedTextList;
+  description?: string | LocalizedText;
 }
 
-/**
- * =============================================================================
- * PROJECT CATEGORIES - CUSTOMIZE BELOW
- * =============================================================================
- *
- * Categories for filtering projects.
- * 'All' is required and should always be first.
- */
-export const projectCategories: string[] = [
-  'All',
-  'Mobile App',
-  'IoT',
-  'Personal Project',
-];
+export interface Certification {
+  id: string;
+  name: string | LocalizedText;
+  issuer: string | LocalizedText;
+  issuerLogo?: string;
+  date: string;
+  expirationDate?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+}
 
-/**
- * =============================================================================
- * YOUR PROJECTS - CUSTOMIZE BELOW
- * =============================================================================
- *
- * Replace these example projects with your actual projects.
- * Mark your best 3-4 projects as featured.
- */
-export const projects: Project[] = [
+export interface Award {
+  id: string;
+  title: string | LocalizedText;
+  issuer: string | LocalizedText;
+  date: string;
+  description?: string | LocalizedText;
+}
+
+export const education: Education[] = [
   {
-    id: 'proj-1',
-    slug: 'ryanair-lab',
-    title: 'Ryanair Finder (iOS)',
-    description:
-      'App iOS para buscar vuelos de Ryanair con SwiftUI moderno, async/await y arquitectura MVVM limpia.',
-    longDescription: `Aplicación iOS que permite buscar vuelos de Ryanair seleccionando origen, destino y fecha de salida. Desarrollada con las últimas características de SwiftUI, gestión de estado con @StateObject/@Published, concurrencia con async/await y @MainActor, y parsing de JSON con Codable. La UI sigue el diseño oficial de Ryanair con tarjetas personalizadas que muestran horarios, duración y precio "Basic".`,
-    thumbnail: '/projects/ryanair-thumb.jpg',
-    images: [],
-    technologies: ['Swift 5', 'SwiftUI', 'MVVM', 'async/await', 'Codable', 'iOS 16+'],
-    category: 'Mobile App',
-    role: 'Developer',
-    duration: 'Sep 2025',
-    githubUrl: 'https://github.com/amayucas/Ryanair_lab',
-    featured: true,
-    highlights: [
-      'Arquitectura MVVM con separación limpia de responsabilidades',
-      'Concurrencia moderna con async/await y @MainActor',
-      'Búsqueda y filtrado de estaciones Ryanair en tiempo real',
-      'Manejo de estados: carga, vacío y error con feedback visual',
-    ],
+    id: 'edu-1',
+    degree: {
+      es: 'Grado en Ingeniería del Software',
+      en: 'Bachelor’s Degree in Software Engineering',
+    },
+    field: {
+      es: '',
+      en: '',
+    },
+    school: {
+      es: 'Universidad Politécnica de Madrid',
+      en: 'Technical University of Madrid',
+    },
+    schoolLogo: '/logos/upm.png',
+    location: {
+      es: 'Madrid, España',
+      en: 'Madrid, Spain',
+    },
+    description: {
+      es: 'Asociación de estudiantes-Nostromus',
+      en: 'Student association - Nostromus',
+    },
+    startYear: 2015,
+    endYear: 2020,
+    relevantCourses: {
+      es: [
+        'Programación Orientada a Objetos',
+        'Sistemas Operativos',
+        'Redes de Computadores',
+        'Ingeniería del Software',
+        'Bases de Datos',
+      ],
+      en: [
+        'Object-Oriented Programming',
+        'Operating Systems',
+        'Computer Networks',
+        'Software Engineering',
+        'Databases',
+      ],
+    },
   },
   {
-    id: 'proj-2',
-    slug: 'mymeds',
-    title: 'MyMeds – Medication Log',
-    description:
-      'App iOS para registrar la toma de medicamentos con SwiftUI + MVVM, persistencia local y micro-interacciones nativas.',
-    longDescription: `MyMeds es una app de salud personal para llevar el control de la ingesta de medicamentos. Permite seleccionar medicamento, introducir dosis, elegir fecha/hora y añadir notas. Los registros se muestran en una timeline en orden cronológico inverso con persistencia local entre sesiones. Diseñada siguiendo patrones nativos de iOS con efectos de material blur y haptic feedback.`,
-    thumbnail: '/projects/mymeds-thumb.jpg',
-    images: [],
-    technologies: ['Swift', 'SwiftUI', 'MVVM', 'iOS 17+', 'Persistence'],
-    category: 'Mobile App',
-    role: 'Developer',
-    duration: 'Nov 2025',
-    githubUrl: 'https://github.com/amayucas/MyMeds',
-    featured: true,
-    highlights: [
-      'Persistencia local de registros entre sesiones',
-      'Timeline inversa con swipe-to-delete',
-      'Haptic feedback y efectos de material blur nativos',
-      'Sin dependencias externas, 100% Swift',
-    ],
-  },
-  {
-    id: 'proj-3',
-    slug: 'app-carrefour-espana',
-    title: 'App Carrefour España',
-    description:
-      'Aplicación móvil Android e iOS de Carrefour España con millones de usuarios activos para compra online y fidelización.',
-    longDescription: `Contribución al desarrollo y mantenimiento de la app oficial de Carrefour España, una de las aplicaciones de retail más utilizadas en España. La app permite compra online, gestión de la tarjeta de fidelización, consulta de ofertas y seguimiento de pedidos, todo desde Android e iOS.`,
-    thumbnail: '/projects/carrefour-thumb.jpg',
-    images: [],
-    technologies: ['Kotlin', 'Swift', 'Jetpack Compose', 'SwiftUI', 'REST APIs', 'Google Cloud'],
-    category: 'Mobile App',
-    role: 'Senior Mobile Developer',
-    duration: '2020 – Actualidad',
-    featured: true,
-    highlights: [
-      'Millones de usuarios activos en Android e iOS',
-      'Integración con plataformas de IA y servicios cloud',
-      'Arquitectura limpia y modular',
-      'Parte del proceso de transformación digital de Carrefour España',
-    ],
-  },
-  {
-    id: 'proj-4',
-    slug: 'iot-energy-monitoring',
-    title: 'IoT Energy Efficiency Monitoring',
-    description:
-      'Sistema IoT de monitorización ambiental y energética con firmware Arduino, comunicación XBee/serie y concentrador en Raspberry Pi.',
-    longDescription: `Proyecto de ingeniería IoT que despliega un prototipo de adquisición de medidas (temperatura, humedad, luminosidad, movimiento, corriente) para analizar la eficiencia energética en un edificio. La arquitectura conecta motas sensoras Arduino con un concentrador en Raspberry Pi vía XBee/serie, enviando datos a un broker MQTT. Desarrollado como proyecto académico en la UPM.`,
-    thumbnail: '/projects/iot-thumb.jpg',
-    images: [],
-    technologies: ['Java', 'Arduino', 'C++', 'Raspberry Pi', 'MQTT', 'XBee', 'JSON'],
-    category: 'IoT',
-    role: 'Developer',
-    duration: '2019',
-    githubUrl: 'https://github.com/amayucas/iot-energy-efficiency-monitoring',
-    featured: false,
-    highlights: [
-      'Arquitectura completa: sensores → Arduino → XBee → Raspberry Pi → MQTT',
-      'Sensores: temperatura, humedad, luminosidad, corriente y movimiento',
-      'Concentrador Java con broker MQTT y filtros JSON',
-      'Proyecto académico UPM con informe técnico completo',
-    ],
-  },
-  {
-    id: 'proj-5',
-    slug: 'be-real-talent-app',
-    title: 'Be Real Talent App',
-    description:
-      'Plataforma mobile para conectar empresas con talento tecnológico. Desarrollo de funcionalidades desde las etapas iniciales del producto.',
-    longDescription: `Desarrollo de parte de las funcionalidades de la aplicación Be Real Talent, una startup de Madrid que conecta empresas con perfiles tecnológicos. Trabajo en entorno ágil con foco en la calidad y el cumplimiento de plazos.`,
-    thumbnail: '/projects/beretalent-thumb.jpg',
-    images: [],
-    technologies: ['Android', 'Kotlin', 'iOS', 'Swift', 'REST APIs'],
-    category: 'Mobile App',
-    role: 'Mobile Developer',
-    duration: '2018 – 2019',
-    featured: false,
-    highlights: [
-      'Desarrollo responsable y en tiempo de las funcionalidades',
-      'Trabajo en startup en etapas tempranas del producto',
-      'Apps nativas Android e iOS',
-    ],
+    id: 'edu-2',
+    degree: {
+      es: 'Becario',
+      en: 'Scholar',
+    },
+    field: {
+      es: 'Ingeniería de Software',
+      en: 'Software Engineering',
+    },
+    school: {
+      es: 'Tongji University',
+      en: 'Tongji University',
+    },
+    schoolLogo: '/logos/tongji.svg',
+    location: {
+      es: 'Shanghai, China',
+      en: 'Shanghai, China',
+    },
+    startYear: 2018,
+    endYear: 2019,
+    description: {
+      es: 'Beca de un semestre en la Tongji University.',
+      en: 'One-semester scholarship at Tongji University.',
+    },
   },
 ];
 
-// =============================================================================
-// HELPER FUNCTIONS
-// =============================================================================
+export const certifications: Certification[] = [
+  {
+    id: 'cert-1',
+    name: {
+      es: 'Certificado de Desarrollo con IA',
+      en: 'AI Development Certification',
+    },
+    issuer: { es: 'BIG school', en: 'BIG school' },
+    date: '2026-03',
+  },
+  {
+    id: 'cert-2',
+    name: { es: 'Open Water Diver', en: 'Open Water Diver' },
+    issuer: { es: 'PADI', en: 'PADI' },
+    date: '2025-05',
+  },
+  {
+    id: 'cert-3',
+    name: {
+      es: 'Google Cloud Fundamentals: Core Infrastructure en Español',
+      en: 'Google Cloud Fundamentals: Core Infrastructure',
+    },
+    issuer: { es: 'Coursera', en: 'Coursera' },
+    date: '2022-11',
+    credentialId: '44LW6DYXEGKG',
+  },
+  {
+    id: 'cert-4',
+    name: {
+      es: 'Preparing for Your Professional Cloud Security Engineer Journey',
+      en: 'Preparing for Your Professional Cloud Security Engineer Journey',
+    },
+    issuer: { es: 'Coursera', en: 'Coursera' },
+    date: '2022-11',
+    credentialId: 'C2M4U67L7C4V',
+  },
+  {
+    id: 'cert-5',
+    name: { es: 'Piloto de RPAS', en: 'RPAS Pilot' },
+    issuer: {
+      es: 'EASA - European Union Aviation Safety Agency',
+      en: 'EASA - European Union Aviation Safety Agency',
+    },
+    date: '2020-12',
+  },
+  {
+    id: 'cert-6',
+    name: { es: 'Django + Python & REST', en: 'Django + Python & REST' },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-12',
+    credentialId: 'cert_k5spg8s3',
+  },
+  {
+    id: 'cert-7',
+    name: { es: 'Advanced Kotlin', en: 'Advanced Kotlin' },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-07',
+    credentialId: 'cert_h1j7pz6w',
+  },
+  {
+    id: 'cert-8',
+    name: {
+      es: 'JavaScript + Node.js + Express + MongoDB',
+      en: 'JavaScript + Node.js + Express + MongoDB',
+    },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-01',
+    credentialId: 'cert_2j3cpjkx',
+  },
+  {
+    id: 'cert-9',
+    name: { es: 'Mobile Apps', en: 'Mobile Apps' },
+    issuer: { es: 'Actívate con Google', en: 'Actívate con Google' },
+    date: '2017-02',
+  },
+  {
+    id: 'cert-10',
+    name: {
+      es: 'Certificación B2 en Lengua Inglesa',
+      en: 'B2 English Language Certification',
+    },
+    issuer: { es: 'TOEIC® Program', en: 'TOEIC® Program' },
+    date: '2016-11',
+    expirationDate: '2018-11',
+  },
+  {
+    id: 'cert-11',
+    name: { es: 'AI for App Building', en: 'AI for App Building' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'Y7ASFRT7ZGJY',
+  },
+  {
+    id: 'cert-12',
+    name: { es: 'AI for Data Analysis', en: 'AI for Data Analysis' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'GT2A0EX9YLUD',
+  },
+  {
+    id: 'cert-13',
+    name: { es: 'AI for Content Creation', en: 'AI for Content Creation' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'O5XJLCMV9LBH',
+  },
+  {
+    id: 'cert-14',
+    name: {
+      es: 'AI for Writing and Communicating',
+      en: 'AI for Writing and Communicating',
+    },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: '66GQZZ7WAQXX',
+  },
+  {
+    id: 'cert-15',
+    name: { es: 'AI for Research and Insights', en: 'AI for Research and Insights' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: '1AXB8CPMT0US',
+  },
+  {
+    id: 'cert-16',
+    name: {
+      es: 'AI for Brainstorming and Planning',
+      en: 'AI for Brainstorming and Planning',
+    },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'BMENNNGIRDEP',
+  },
+];
 
-/**
- * Get featured projects
- */
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((project) => project.featured);
+export const awards: Award[] = [];
+
+export function getLatestEducation(): Education | undefined {
+  return education.length > 0 ? education[0] : undefined;
 }
 
-/**
- * Get project by slug
- */
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug);
-}
-
-/**
- * Get projects by category
- */
-export function getProjectsByCategory(category: string): Project[] {
-  if (category === 'All') return projects;
-  return projects.filter((project) => project.category === category);
-}
-
-/**
- * Get all unique technologies used across projects
- */
-export function getAllProjectTechnologies(): string[] {
-  const techSet = new Set<string>();
-  projects.forEach((project) => {
-    project.technologies.forEach((tech) => techSet.add(tech));
+export function getActiveCertifications(): Certification[] {
+  const now = new Date();
+  return certifications.filter((cert) => {
+    if (!cert.expirationDate) return true;
+    const expDate = new Date(cert.expirationDate + '-01');
+    return expDate > now;
   });
-  return Array.from(techSet).sort();
 }
 
-/**
- * Get project count by category
- */
-export function getProjectCountByCategory(): Record<string, number> {
-  const counts: Record<string, number> = { All: projects.length };
-
-  projectCategories.slice(1).forEach((category) => {
-    counts[category] = projects.filter((p) => p.category === category).length;
+export function getExpiredCertifications(): Certification[] {
+  const now = new Date();
+  return certifications.filter((cert) => {
+    if (!cert.expirationDate) return false;
+    const expDate = new Date(cert.expirationDate + '-01');
+    return expDate <= now;
   });
-
-  return counts;
 }
 
-/**
- * Search projects by title, description, or technology
- */
-export function searchProjects(query: string): Project[] {
-  const lowerQuery = query.toLowerCase();
-  return projects.filter(
-    (project) =>
-      project.title.toLowerCase().includes(lowerQuery) ||
-      project.description.toLowerCase().includes(lowerQuery) ||
-      project.technologies.some((tech) =>
-        tech.toLowerCase().includes(lowerQuery)
-      )
-  );
+export function hasCertifications(): boolean {
+  return certifications.length > 0;
 }
 
-/**
- * Get related projects (same category, excluding current)
- */
-export function getRelatedProjects(
-  currentSlug: string,
-  limit: number = 3
-): Project[] {
-  const current = getProjectBySlug(currentSlug);
-  if (!current) return [];
+export function hasAwards(): boolean {
+  return awards.length > 0;
+}
 
-  return projects
-    .filter((p) => p.slug !== currentSlug && p.category === current.category)
-    .slice(0, limit);
+export function formatEducation(edu: Education): string {
+  return `${edu.degree} en ${edu.field} de ${edu.school} (${edu.endYear})`;
+}
+
+export function isCertificationExpiringSoon(cert: Certification): boolean {
+  if (!cert.expirationDate) return false;
+
+  const now = new Date();
+  const expDate = new Date(cert.expirationDate + '-01');
+  const sixMonthsFromNow = new Date(now.getTime() + 180 * 24 * 60 * 60 * 1000);
+
+  return expDate <= sixMonthsFromNow && expDate > now;
 }

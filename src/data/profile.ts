@@ -1,61 +1,49 @@
 'use client';
 
-import { Container } from '@/components/ui';
-import {
-  ProfileHeader,
-  Summary,
-  ExperienceTimeline,
-  SkillsSection,
-  EducationSection,
-  CertificationsSection,
-  LanguagesSection,
-} from '@/components/resume';
-import { ContactSection } from '@/components/contact';
-import { ProjectGrid } from '@/components/portfolio';
-import { Section } from '@/components/ui';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { Globe } from 'lucide-react';
+import { languages } from '@/data/skills';
+import { Badge } from '@/components/ui';
 import { useLanguage } from '@/lib/LanguageContext';
-import { VisitCounter } from '@/components/VisitCounter';
+import { getLocalizedValue } from '@/lib/localized';
 
-export default function HomePage() {
-  const { t } = useLanguage();
+export function LanguagesSection() {
+  const { t, locale } = useLanguage();
+
+  const levelLabels: Record<string, Record<string, string>> = {
+    es: { Native: 'Nativo', Professional: 'Profesional', Basic: 'Básico' },
+    en: { Native: 'Native', Professional: 'Professional', Basic: 'Basic' },
+  };
+
+  const levelColors: Record<string, 'success' | 'default' | 'secondary'> = {
+    Native: 'success',
+    Professional: 'default',
+    Basic: 'secondary',
+  };
 
   return (
-    <Container size="lg" className="py-12">
-      <div className="mb-6 flex justify-end">
-        <VisitCounter />
+    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+      <h3 className="font-semibold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+        <Globe className="w-5 h-5 text-gray-400" />
+        {t('languages.title')}
+      </h3>
+      <div className="flex flex-wrap gap-3">
+        {languages.map((lang) => {
+          const name = getLocalizedValue(lang.name, locale) ?? '';
+          return (
+            <div
+              key={String(lang.name)}
+              className="flex items-center gap-2 bg-gray-50 dark:bg-gray-800 rounded-lg px-3 py-2"
+            >
+              <span className="font-medium text-gray-900 dark:text-white">
+                {name}
+              </span>
+              <Badge variant={levelColors[lang.level] || 'secondary'} size="sm">
+                {levelLabels[locale]?.[lang.level] || lang.level}
+              </Badge>
+            </div>
+          );
+        })}
       </div>
-
-      <section id="about" className="mb-16">
-        <ProfileHeader />
-        <Summary />
-      </section>
-
-      <ExperienceTimeline />
-      <SkillsSection />
-      <EducationSection />
-      <CertificationsSection />
-      <LanguagesSection />
-
-      <Section
-        id="portfolio-preview"
-        title={t('portfolio.featuredProjects')}
-        subtitle={t('portfolio.featuredSubtitle')}
-      >
-        <ProjectGrid featuredOnly limit={3} showFilters={false} />
-        <div className="text-center mt-8">
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
-          >
-            {t('portfolio.viewAll')}
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </Section>
-
-      <ContactSection />
-    </Container>
+    </div>
   );
 }

@@ -1,71 +1,76 @@
 'use client';
 
-import { Badge } from '@/components/ui';
-import type { Experience } from '@/data/experience';
+import { Mail, Phone, MapPin, Globe, Download } from 'lucide-react';
+import { profile } from '@/data/profile';
+import { Button } from '@/components/ui';
+import { SocialLinks } from '@/components/contact/SocialLinks';
 import { useLanguage } from '@/lib/LanguageContext';
-import { formatDateLocale } from '@/lib/date';
+import { getLocalizedValue } from '@/lib/localized';
 
-interface ExperienceCardProps {
-  experience: Experience;
-}
-
-export function ExperienceCard({ experience }: ExperienceCardProps) {
+export function ProfileHeader() {
   const { t, locale } = useLanguage();
-  const formatDate = (date: string) => formatDateLocale(date, locale);
+  const title = getLocalizedValue(profile.title, locale) ?? profile.name;
+  const location = getLocalizedValue(profile.location, locale) ?? profile.location;
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-800">
-      <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-4">
-        {/* Company Logo */}
-        <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
-          {experience.companyLogo ? (
-            <img
-              src={experience.companyLogo}
-              alt={experience.company}
-              className="object-contain w-full h-full p-1"
-            />
-          ) : (
-            <span className="text-sm font-bold text-gray-400 dark:text-gray-500">
-              {experience.company.substring(0, 2).toUpperCase()}
-            </span>
-          )}
-        </div>
-
-        <div className="flex-1">
-          <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
-            {experience.title}
-          </h3>
-          <p className="text-blue-600 dark:text-blue-400 font-medium">
-            {experience.company}
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-500">
-            {formatDate(experience.startDate)} –{' '}
-            {experience.current ? t('experience.present') : formatDate(experience.endDate!)}
-            {' · '}{experience.location}
-            {' · '}<span>{t(`employment.${experience.type}`)}</span>
-          </p>
-        </div>
+    <header className="flex flex-col md:flex-row items-center gap-8 mb-12">
+      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg flex-shrink-0 bg-gray-200 dark:bg-gray-700 relative">
+        {profile.photo ? (
+          <img
+            src={profile.photo}
+            alt={profile.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-gray-400 dark:text-gray-500">
+            {profile.name.split(' ').map((n) => n[0]).join('')}
+          </div>
+        )}
       </div>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4">
-        {experience.description}
-      </p>
+      <div className="flex-1 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+          {profile.name}
+        </h1>
+        <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-medium mb-4">
+          {title}
+        </p>
 
-      {/* Achievements */}
-      <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700 dark:text-gray-300">
-        {experience.achievements.map((achievement, i) => (
-          <li key={i} className="text-sm">{achievement}</li>
-        ))}
-      </ul>
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
+          <a
+            href={`mailto:${profile.email}`}
+            className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            {profile.email}
+          </a>
+          <span className="flex items-center gap-1.5">
+            <Phone className="w-4 h-4" />
+            {profile.phone}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <MapPin className="w-4 h-4" />
+            {location}
+          </span>
+          <a
+            href={profile.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            Portfolio
+          </a>
+        </div>
 
-      {/* Technologies */}
-      <div className="flex flex-wrap gap-2">
-        {experience.technologies.map((tech) => (
-          <Badge key={tech} variant="secondary" size="sm">
-            {tech}
-          </Badge>
-        ))}
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <SocialLinks />
+          <Button href="/print">
+            <Download className="w-4 h-4 mr-2" />
+            {t('profile.viewResume')}
+          </Button>
+        </div>
       </div>
-    </div>
+    </header>
   );
 }

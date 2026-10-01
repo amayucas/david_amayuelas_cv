@@ -1,77 +1,74 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { GraduationCap, MapPin, Award } from 'lucide-react';
-import { education } from '@/data/education';
-import { Section, Badge, Card, CardContent } from '@/components/ui';
+import { Badge } from '@/components/ui';
+import type { Experience } from '@/data/experience';
 import { useLanguage } from '@/lib/LanguageContext';
+import { getLocalizedValue } from '@/lib/localized';
+import { formatDateLocale } from '@/lib/date';
 
-export function EducationSection() {
-  const { t } = useLanguage();
+interface ExperienceCardProps {
+  experience: Experience;
+}
+
+export function ExperienceCard({ experience }: ExperienceCardProps) {
+  const { t, locale } = useLanguage();
+  const formatDate = (date: string) => formatDateLocale(date, locale);
+
+  const title = getLocalizedValue(experience.title, locale) ?? experience.company;
+  const location = getLocalizedValue(experience.location, locale) ?? experience.company;
+  const description = getLocalizedValue(experience.description, locale) ?? '';
+  const achievements = getLocalizedValue(experience.achievements, locale) ?? [];
 
   return (
-    <Section id="education" title={t('education.title')} subtitle={t('education.subtitle')}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-        {education.map((edu, index) => (
-          <motion.div
-            key={edu.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Card hover>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    {edu.schoolLogo ? (
-                      <img
-                        src={edu.schoolLogo}
-                        alt={edu.school}
-                        className="object-contain w-full h-full p-1"
-                      />
-                    ) : (
-                      <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">
-                      {edu.degree}{edu.field ? ` ${t('education.in')} ${edu.field}` : ''}
-                    </h3>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium">
-                      {edu.school}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-1">
-                      <MapPin className="w-4 h-4" />
-                      {edu.location} · {edu.startYear} - {edu.endYear}
-                    </div>
-                    {edu.description && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        {edu.description}
-                      </p>
-                    )}
-                    {edu.gpa && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                        {t('education.gpa')}: {edu.gpa}
-                      </p>
-                    )}
-                    {edu.honors && edu.honors.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {edu.honors.map((honor) => (
-                          <Badge key={honor} variant="success" size="sm">
-                            <Award className="w-3 h-3 mr-1" />
-                            {honor}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-800">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-4">
+        <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
+          {experience.companyLogo ? (
+            <img
+              src={experience.companyLogo}
+              alt={experience.company}
+              className="object-contain w-full h-full p-1"
+            />
+          ) : (
+            <span className="text-sm font-bold text-gray-400 dark:text-gray-500">
+              {experience.company.substring(0, 2).toUpperCase()}
+            </span>
+          )}
+        </div>
+
+        <div className="flex-1">
+          <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
+            {title}
+          </h3>
+          <p className="text-blue-600 dark:text-blue-400 font-medium">
+            {experience.company}
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-500">
+            {formatDate(experience.startDate)} –{' '}
+            {experience.current ? t('experience.present') : formatDate(experience.endDate!)}
+            {' · '}{location}
+            {' · '}<span>{t(`employment.${experience.type}`)}</span>
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-600 dark:text-gray-400 mb-4">
+        {description}
+      </p>
+
+      <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700 dark:text-gray-300">
+        {achievements.map((achievement, i) => (
+          <li key={i} className="text-sm">{achievement}</li>
+        ))}
+      </ul>
+
+      <div className="flex flex-wrap gap-2">
+        {experience.technologies.map((tech) => (
+          <Badge key={tech} variant="secondary" size="sm">
+            {tech}
+          </Badge>
         ))}
       </div>
-    </Section>
+    </div>
   );
 }

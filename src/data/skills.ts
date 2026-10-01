@@ -1,341 +1,248 @@
-/**
- * =============================================================================
- * SKILLS DATA - Technical & Professional Skills
- * =============================================================================
- *
- * AI CUSTOMIZATION INSTRUCTIONS:
- * This file contains skills displayed in the Skills section.
- *
- * TO CUSTOMIZE:
- * 1. Replace example skills with your actual skills
- * 2. Set proficiency levels honestly (0-100)
- * 3. Organize skills by category
- * 4. Update spoken languages if applicable
- *
- * PROFICIENCY LEVEL GUIDE:
- * - 90-100: Expert (can teach others, deep knowledge)
- * - 70-89:  Advanced (proficient, used extensively)
- * - 50-69:  Intermediate (comfortable, moderate experience)
- * - 30-49:  Basic (familiar, some experience)
- * - 10-29:  Beginner (learning, minimal experience)
- *
- * TO ADD A NEW SKILL:
- * { name: 'Skill Name', level: 85, category: 'Category', yearsOfExperience: 3 }
- *
- * TO ADD A NEW CATEGORY:
- * 1. Add the category name to the skillCategories array
- * 2. Add skills with that category to the skills array
- * =============================================================================
- */
+import type { Localized } from '@/lib/localized';
 
-/**
- * Skill entry type definition
- */
-export interface Skill {
-  /** Skill name (e.g., "React", "Python", "Project Management") */
-  name: string;
+export type LocalizedText = Localized<string>;
+export type LocalizedTextList = Localized<string[]>;
 
-  /**
-   * Proficiency level from 0-100
-   * See guide above for recommended ranges
-   */
-  level: number;
-
-  /**
-   * Category for grouping skills
-   * Must match one of the categories in skillCategories array
-   */
-  category: string;
-
-  /**
-   * Icon identifier (optional)
-   * Can be used to display skill icons
-   */
-  icon?: string;
-
-  /**
-   * Years of experience with this skill (optional)
-   */
-  yearsOfExperience?: number;
+export interface Project {
+  id: string;
+  slug: string;
+  title: string | LocalizedText;
+  description: string | LocalizedText;
+  longDescription?: string | LocalizedText;
+  thumbnail: string;
+  images: string[];
+  technologies: string[];
+  category: string | LocalizedText;
+  role: string | LocalizedText;
+  duration: string | LocalizedText;
+  liveUrl?: string;
+  githubUrl?: string;
+  featured: boolean;
+  highlights: string[] | LocalizedTextList;
 }
 
-/**
- * Spoken language type definition
- */
-export interface Language {
-  /** Language name (e.g., "English", "Spanish") */
-  name: string;
+export const projectCategories: string[] = ['All', 'Mobile App', 'IoT', 'Personal Project'];
 
-  /**
-   * Proficiency level
-   * Options: 'Native' | 'Fluent' | 'Professional' | 'Intermediate' | 'Basic'
-   */
-  level: 'Native' | 'Fluent' | 'Professional' | 'Intermediate' | 'Basic';
-}
-
-/**
- * =============================================================================
- * SKILL CATEGORIES - CUSTOMIZE BELOW
- * =============================================================================
- *
- * These categories are used to group skills in the UI.
- * Add, remove, or rename categories as needed.
- */
-export const skillCategories: string[] = [
-  'Móvil',
-  'Lenguajes',
-  'Backend',
-  'IA / LLM',
-  'Cloud',
-  'DevOps',
-];
-
-/**
- * =============================================================================
- * YOUR SKILLS - CUSTOMIZE BELOW
- * =============================================================================
- *
- * Replace these example skills with your actual skills.
- * Group skills by category for better organization.
- */
-export const skills: Skill[] = [
-  // ---------------------------------------------------------------------------
-  // MOBILE
-  // ---------------------------------------------------------------------------
+export const projects: Project[] = [
   {
-    name: 'Android (Kotlin)',
-    level: 95,
-    category: 'Móvil',
-    yearsOfExperience: 7,
+    id: 'proj-1',
+    slug: 'ryanair-lab',
+    title: { es: 'Ryanair Finder (iOS)', en: 'Ryanair Finder (iOS)' },
+    description: {
+      es: 'App iOS para buscar vuelos de Ryanair con SwiftUI moderno, async/await y arquitectura MVVM limpia.',
+      en: 'iOS app to search Ryanair flights using modern SwiftUI, async/await and a clean MVVM architecture.',
+    },
+    longDescription: {
+      es: 'Aplicación iOS que permite buscar vuelos de Ryanair seleccionando origen, destino y fecha de salida. Desarrollada con las últimas características de SwiftUI, gestión de estado, y una arquitectura clara para facilitar la expansión.',
+      en: 'iOS application that lets users search Ryanair flights by selecting origin, destination, and departure date. Built with the latest SwiftUI features, state management, and a clean architecture designed for future expansion.',
+    },
+    thumbnail: '/projects/ryanair-thumb.jpg',
+    images: [],
+    technologies: ['Swift 5', 'SwiftUI', 'MVVM', 'async/await', 'Codable', 'iOS 16+'],
+    category: { es: 'Mobile App', en: 'Mobile App' },
+    role: { es: 'Developer', en: 'Developer' },
+    duration: { es: 'Sep 2025', en: 'Sep 2025' },
+    githubUrl: 'https://github.com/amayucas/Ryanair_lab',
+    featured: true,
+    highlights: {
+      es: [
+        'Arquitectura MVVM con separación limpia de responsabilidades',
+        'Concurrencia moderna con async/await y @MainActor',
+        'Búsqueda y filtrado de estaciones Ryanair en tiempo real',
+        'Manejo de estados: carga, vacío y error con feedback visual',
+      ],
+      en: [
+        'MVVM architecture with clean separation of responsibilities',
+        'Modern concurrency using async/await and @MainActor',
+        'Live search and filtering of Ryanair stations',
+        'State handling for loading, empty, and error views with visual feedback',
+      ],
+    },
   },
   {
-    name: 'iOS (Swift)',
-    level: 90,
-    category: 'Móvil',
-    yearsOfExperience: 6,
+    id: 'proj-2',
+    slug: 'mymeds',
+    title: { es: 'MyMeds – Medication Log', en: 'MyMeds – Medication Log' },
+    description: {
+      es: 'App iOS para registrar la toma de medicamentos con SwiftUI + MVVM, persistencia local y micro-interacciones nativas.',
+      en: 'iOS app for tracking medication intake with SwiftUI + MVVM, local persistence, and native micro-interactions.',
+    },
+    longDescription: {
+      es: 'MyMeds es una app de salud personal para llevar el control de la ingesta de medicamentos. Permite seleccionar medicamento, introducir dosis, elegir fecha/hora y añadir nota personal.',
+      en: 'MyMeds is a personal health app for tracking medication intake. It allows users to select a medicine, enter dosage, choose date and time, and add personal notes.',
+    },
+    thumbnail: '/projects/mymeds-thumb.jpg',
+    images: [],
+    technologies: ['Swift', 'SwiftUI', 'MVVM', 'iOS 17+', 'Persistence'],
+    category: { es: 'Mobile App', en: 'Mobile App' },
+    role: { es: 'Developer', en: 'Developer' },
+    duration: { es: 'Nov 2025', en: 'Nov 2025' },
+    githubUrl: 'https://github.com/amayucas/MyMeds',
+    featured: true,
+    highlights: {
+      es: [
+        'Persistencia local de registros entre sesiones',
+        'Timeline inversa con swipe-to-delete',
+        'Haptic feedback y efectos de material blur nativos',
+        'Sin dependencias externas, 100% Swift',
+      ],
+      en: [
+        'Local persistence for records across sessions',
+        'Reverse timeline with swipe-to-delete interactions',
+        'Native haptic feedback and blur material effects',
+        'No external dependencies, 100% Swift',
+      ],
+    },
   },
   {
-    name: 'Jetpack Compose',
-    level: 88,
-    category: 'Móvil',
-    yearsOfExperience: 3,
+    id: 'proj-3',
+    slug: 'app-carrefour-espana',
+    title: { es: 'App Carrefour España', en: 'Carrefour Spain App' },
+    description: {
+      es: 'Aplicación móvil Android e iOS de Carrefour España con millones de usuarios activos para compra online y fidelización.',
+      en: 'Android and iOS mobile application for Carrefour Spain, serving millions of active users for online shopping and loyalty.',
+    },
+    longDescription: {
+      es: 'Contribución al desarrollo y mantenimiento de la app oficial de Carrefour España, una de las aplicaciones de retail más utilizadas en España. La app permite compra online, gestión de ofertas y fidelización.',
+      en: 'Contribution to the development and maintenance of Carrefour Spain’s official app, one of the most used retail apps in Spain. The app supports online purchases, offers, and loyalty features.',
+    },
+    thumbnail: '/projects/carrefour-thumb.jpg',
+    images: [],
+    technologies: ['Kotlin', 'Swift', 'Jetpack Compose', 'SwiftUI', 'REST APIs', 'Google Cloud'],
+    category: { es: 'Mobile App', en: 'Mobile App' },
+    role: { es: 'Senior Mobile Developer', en: 'Senior Mobile Developer' },
+    duration: { es: '2020 – Actualidad', en: '2020 – Present' },
+    featured: true,
+    highlights: {
+      es: [
+        'Millones de usuarios activos en Android e iOS',
+        'Integración con plataformas de IA y servicios cloud',
+        'Arquitectura limpia y modular',
+        'Parte del proceso de transformación digital de Carrefour España',
+      ],
+      en: [
+        'Millions of active users on Android and iOS',
+        'Integration with AI platforms and cloud services',
+        'Clean, modular architecture',
+        'Part of Carrefour Spain’s digital transformation program',
+      ],
+    },
   },
   {
-    name: 'SwiftUI',
-    level: 82,
-    category: 'Móvil',
-    yearsOfExperience: 3,
+    id: 'proj-4',
+    slug: 'iot-energy-monitoring',
+    title: { es: 'IoT Energy Efficiency Monitoring', en: 'IoT Energy Efficiency Monitoring' },
+    description: {
+      es: 'Sistema IoT de monitorización ambiental y energética con firmware Arduino, comunicación XBee/serie y concentrador en Raspberry Pi.',
+      en: 'IoT environmental and energy monitoring system using Arduino firmware, XBee/serial communication, and a Raspberry Pi concentrator.',
+    },
+    longDescription: {
+      es: 'Proyecto de ingeniería IoT que despliega un prototipo de adquisición de medidas (temperatura, humedad, luminosidad, movimiento, corriente) para analizar la eficiencia energética.',
+      en: 'An IoT engineering project implementing a measurement prototype to capture temperature, humidity, light, motion, and current data for energy-efficiency analysis.',
+    },
+    thumbnail: '/projects/iot-thumb.jpg',
+    images: [],
+    technologies: ['Java', 'Arduino', 'C++', 'Raspberry Pi', 'MQTT', 'XBee', 'JSON'],
+    category: { es: 'IoT', en: 'IoT' },
+    role: { es: 'Developer', en: 'Developer' },
+    duration: { es: '2019', en: '2019' },
+    githubUrl: 'https://github.com/amayucas/iot-energy-efficiency-monitoring',
+    featured: false,
+    highlights: {
+      es: [
+        'Arquitectura completa: sensores → Arduino → XBee → Raspberry Pi → MQTT',
+        'Sensores: temperatura, humedad, luminosidad, corriente y movimiento',
+        'Concentrador Java con broker MQTT y filtros JSON',
+        'Proyecto académico UPM con informe técnico completo',
+      ],
+      en: [
+        'Complete architecture: sensors → Arduino → XBee → Raspberry Pi → MQTT',
+        'Sensors: temperature, humidity, light, current, and motion',
+        'Java concentrator with MQTT broker and JSON filters',
+        'UPM academic project with full technical report',
+      ],
+    },
   },
   {
-    name: 'Clean Architecture / MVVM',
-    level: 90,
-    category: 'Móvil',
-    yearsOfExperience: 5,
-  },
-
-  // ---------------------------------------------------------------------------
-  // PROGRAMMING LANGUAGES
-  // ---------------------------------------------------------------------------
-  {
-    name: 'Kotlin',
-    level: 95,
-    category: 'Lenguajes',
-    yearsOfExperience: 7,
-  },
-  {
-    name: 'Swift',
-    level: 90,
-    category: 'Lenguajes',
-    yearsOfExperience: 6,
-  },
-  {
-    name: 'Java',
-    level: 80,
-    category: 'Lenguajes',
-    yearsOfExperience: 5,
-  },
-  {
-    name: 'JavaScript',
-    level: 75,
-    category: 'Lenguajes',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Python',
-    level: 65,
-    category: 'Lenguajes',
-    yearsOfExperience: 3,
-  },
-
-  // ---------------------------------------------------------------------------
-  // BACKEND
-  // ---------------------------------------------------------------------------
-  {
-    name: 'Node.js / Express',
-    level: 72,
-    category: 'Backend',
-    yearsOfExperience: 3,
-  },
-  {
-    name: 'Django / Python',
-    level: 68,
-    category: 'Backend',
-    yearsOfExperience: 2,
-  },
-  {
-    name: 'REST APIs',
-    level: 92,
-    category: 'Backend',
-    yearsOfExperience: 7,
-  },
-  {
-    name: 'MongoDB',
-    level: 70,
-    category: 'Backend',
-    yearsOfExperience: 3,
-  },
-
-  // ---------------------------------------------------------------------------
-  // IA / LLM
-  // ---------------------------------------------------------------------------
-  {
-    name: 'Prompt Engineering',
-    level: 82,
-    category: 'IA / LLM',
-    yearsOfExperience: 2,
-  },
-  {
-    name: 'OpenAI API / GPT',
-    level: 78,
-    category: 'IA / LLM',
-    yearsOfExperience: 2,
-  },
-  {
-    name: 'Google Gemini / Gemini CLI',
-    level: 75,
-    category: 'IA / LLM',
-    yearsOfExperience: 1,
-  },
-  {
-    name: 'Claude Code',
-    level: 70,
-    category: 'IA / LLM',
-    yearsOfExperience: 1,
-  },
-  {
-    name: 'Codex',
-    level: 68,
-    category: 'IA / LLM',
-    yearsOfExperience: 1,
-  },
-  {
-    name: 'OpenClaw',
-    level: 65,
-    category: 'IA / LLM',
-    yearsOfExperience: 1,
-  },
-
-  // ---------------------------------------------------------------------------
-  // CLOUD & DEVOPS
-  // ---------------------------------------------------------------------------
-  {
-    name: 'Google Cloud (GCP)',
-    level: 72,
-    category: 'Cloud',
-    yearsOfExperience: 3,
-  },
-  {
-    name: 'Git',
-    level: 92,
-    category: 'DevOps',
-    yearsOfExperience: 8,
-  },
-  {
-    name: 'CI/CD',
-    level: 80,
-    category: 'DevOps',
-    yearsOfExperience: 4,
-  },
-  {
-    name: 'Agile / Scrum',
-    level: 88,
-    category: 'DevOps',
-    yearsOfExperience: 6,
+    id: 'proj-5',
+    slug: 'be-real-talent-app',
+    title: { es: 'Be Real Talent App', en: 'Be Real Talent App' },
+    description: {
+      es: 'Plataforma mobile para conectar empresas con talento tecnológico. Desarrollo de funcionalidades desde las etapas iniciales del producto.',
+      en: 'Mobile platform connecting companies with technology talent. Development of product features from the early stages.',
+    },
+    longDescription: {
+      es: 'Desarrollo de parte de las funcionalidades de la aplicación Be Real Talent, una startup de Madrid que conecta empresas con perfiles tecnológicos. Trabajo en entorno ágil y entregas iterativas.',
+      en: 'Development of several features for the Be Real Talent app, a Madrid startup connecting companies with technology profiles. Work was carried out in an agile environment with iterative deliveries.',
+    },
+    thumbnail: '/projects/beretalent-thumb.jpg',
+    images: [],
+    technologies: ['Android', 'Kotlin', 'iOS', 'Swift', 'REST APIs'],
+    category: { es: 'Mobile App', en: 'Mobile App' },
+    role: { es: 'Mobile Developer', en: 'Mobile Developer' },
+    duration: { es: '2018 – 2019', en: '2018 – 2019' },
+    featured: false,
+    highlights: {
+      es: [
+        'Desarrollo responsable y en tiempo de las funcionalidades',
+        'Trabajo en startup en etapas tempranas del producto',
+        'Apps nativas Android e iOS',
+      ],
+      en: [
+        'Responsible and timely delivery of product features',
+        'Work in a startup during early product stages',
+        'Native Android and iOS apps',
+      ],
+    },
   },
 ];
 
-/**
- * =============================================================================
- * SPOKEN LANGUAGES - CUSTOMIZE BELOW
- * =============================================================================
- *
- * List the languages you speak and your proficiency level.
- */
-export const languages: Language[] = [
-  { name: 'Español', level: 'Native' },
-  { name: 'Inglés', level: 'Professional' },
-  { name: 'Chino', level: 'Basic' },
-];
-
-// =============================================================================
-// HELPER FUNCTIONS
-// =============================================================================
-
-/**
- * Get skills filtered by category
- */
-export function getSkillsByCategory(category: string): Skill[] {
-  return skills.filter((skill) => skill.category === category);
+export function getFeaturedProjects(): Project[] {
+  return projects.filter((project) => project.featured);
 }
 
-/**
- * Get top N skills sorted by proficiency level
- */
-export function getTopSkills(count: number = 6): Skill[] {
-  return [...skills].sort((a, b) => b.level - a.level).slice(0, count);
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((project) => project.slug === slug);
 }
 
-/**
- * Get all unique skill categories actually used in skills array
- */
-export function getUsedCategories(): string[] {
-  const categories = new Set(skills.map((skill) => skill.category));
-  // Return in the order defined in skillCategories
-  return skillCategories.filter((cat) => categories.has(cat));
+export function getProjectsByCategory(category: string): Project[] {
+  if (category === 'All') return projects;
+  return projects.filter((project) => project.category === category);
 }
 
-/**
- * Get skills grouped by category
- */
-export function getSkillsGroupedByCategory(): Record<string, Skill[]> {
-  const grouped: Record<string, Skill[]> = {};
+export function getAllProjectTechnologies(): string[] {
+  const techSet = new Set<string>();
+  projects.forEach((project) => {
+    project.technologies.forEach((tech) => techSet.add(tech));
+  });
+  return Array.from(techSet).sort();
+}
 
-  skillCategories.forEach((category) => {
-    const categorySkills = getSkillsByCategory(category);
-    if (categorySkills.length > 0) {
-      grouped[category] = categorySkills;
-    }
+export function getProjectCountByCategory(): Record<string, number> {
+  const counts: Record<string, number> = { All: projects.length };
+
+  projectCategories.slice(1).forEach((category) => {
+    counts[category] = projects.filter((p) => p.category === category).length;
   });
 
-  return grouped;
+  return counts;
 }
 
-/**
- * Calculate average skill level
- */
-export function getAverageSkillLevel(): number {
-  if (skills.length === 0) return 0;
-  const total = skills.reduce((sum, skill) => sum + skill.level, 0);
-  return Math.round(total / skills.length);
+export function searchProjects(query: string): Project[] {
+  const lowerQuery = query.toLowerCase();
+  return projects.filter(
+    (project) =>
+      (typeof project.title === 'string' ? project.title : project.title.es).toLowerCase().includes(lowerQuery) ||
+      (typeof project.description === 'string' ? project.description : project.description.es).toLowerCase().includes(lowerQuery) ||
+      project.technologies.some((tech) => tech.toLowerCase().includes(lowerQuery)),
+  );
 }
 
-/**
- * Get proficiency label for a skill level
- */
-export function getSkillProficiencyLabel(level: number): string {
-  if (level >= 90) return 'Experto';
-  if (level >= 70) return 'Avanzado';
-  if (level >= 50) return 'Intermedio';
-  if (level >= 30) return 'Básico';
-  return 'Principiante';
+export function getRelatedProjects(currentSlug: string, limit: number = 3): Project[] {
+  const current = getProjectBySlug(currentSlug);
+  if (!current) return [];
+
+  return projects
+    .filter((p) => p.slug !== currentSlug && p.category === current.category)
+    .slice(0, limit);
 }

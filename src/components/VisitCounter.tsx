@@ -13,15 +13,19 @@ export function VisitCounter() {
 
     async function syncVisits() {
       try {
+        let response: Response;
         if (typeof window !== 'undefined') {
           const hasCounted = sessionStorage.getItem('visit-counter-posted') === 'true';
           if (!hasCounted) {
             sessionStorage.setItem('visit-counter-posted', 'true');
-            await fetch('/api/views', { method: 'POST' });
+            response = await fetch('/api/views', { method: 'POST' });
+          } else {
+            response = await fetch('/api/views');
           }
+        } else {
+          response = await fetch('/api/views');
         }
 
-        const response = await fetch('/api/views');
         const data = (await response.json()) as { views?: number };
 
         if (isMounted) {

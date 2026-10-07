@@ -1,32 +1,76 @@
 'use client';
 
+import { Mail, Phone, MapPin, Globe, Download } from 'lucide-react';
+import { profile } from '@/data/profile';
+import { Button } from '@/components/ui';
+import { SocialLinks } from '@/components/contact/SocialLinks';
 import { useLanguage } from '@/lib/LanguageContext';
 import { getLocalizedValue } from '@/lib/localized';
-import { profile } from '@/data/profile';
-import { CheckCircle } from 'lucide-react';
 
-export function Summary() {
-  const { locale } = useLanguage();
-  const summary = getLocalizedValue(profile.summary, locale) ?? '';
-  const highlights = getLocalizedValue(profile.highlights, locale) ?? [];
+export function ProfileHeader() {
+  const { t, locale } = useLanguage();
+  const title = getLocalizedValue(profile.title, locale) ?? profile.name;
+  const location = getLocalizedValue(profile.location, locale) ?? '';
 
   return (
-    <div className="mb-12">
-      <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-        {summary}
-      </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {highlights.map((highlight, index) => (
-          <div
-            key={index}
-            className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
-          >
-            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-            <span>{highlight}</span>
+    <header className="flex flex-col md:flex-row items-center gap-8 mb-12">
+      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg flex-shrink-0 bg-gray-200 dark:bg-gray-700 relative">
+        {profile.photo ? (
+          <img
+            src={profile.photo}
+            alt={profile.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-gray-400 dark:text-gray-500">
+            {profile.name.split(' ').map((n) => n[0]).join('')}
           </div>
-        ))}
+        )}
       </div>
-    </div>
+
+      <div className="flex-1 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+          {profile.name}
+        </h1>
+        <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-medium mb-4">
+          {title}
+        </p>
+
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
+          <a
+            href={`mailto:${profile.email}`}
+            className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            {profile.email}
+          </a>
+          <span className="flex items-center gap-1.5">
+            <Phone className="w-4 h-4" />
+            {profile.phone}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <MapPin className="w-4 h-4" />
+            {location}
+          </span>
+          <a
+            href={profile.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+            Portfolio
+          </a>
+        </div>
+
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <SocialLinks />
+          <Button href="/print">
+            <Download className="w-4 h-4 mr-2" />
+            {t('profile.viewResume')}
+          </Button>
+        </div>
+      </div>
+    </header>
   );
 }

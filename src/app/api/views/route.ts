@@ -1,33 +1,65 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-const viewsFilePath = join(process.cwd(), 'data', 'views.json');
+export const dynamic = 'force-dynamic';
 
-async function ensureDataFile() {
-  await mkdir(dirname(viewsFilePath), { recursive: true });
+const primaryFilePath = join(process.cwd(), 'data', 'views.json');
+const tmpFilePath = join('/tmp', 'david_cv_views.json');
 
-  try {
-    await readFile(viewsFilePath, 'utf-8');
-  } catch {
-    await writeFile(viewsFilePath, JSON.stringify({ count: 0 }, null, 2));
+let inMemoryViews: number | null = null;
+
+async function getViews(): Promise<number> {
+  if (inMemoryViews !== null) {
+    return inMemoryViews;
   }
-}
 
-async function getViews() {
-  await ensureDataFile();
-
+  // Try reading from /tmp first (holds latest serverless writes)
   try {
-    const file = await readFile(viewsFilePath, 'utf-8');
+    const file = await readFile(tmpFilePath, 'utf-8');
     const data = JSON.parse(file) as { count?: number };
-    return typeof data.count === 'number' ? data.count : 0;
+    if (typeof data.count === 'number') {
+      inMemoryViews = data.count;
+      return inMemoryViews;
+    }
   } catch {
-    return 0;
+    // Fallback to primary
   }
+
+  // Fallback to project file
+  try {
+    const file = await readFile(primaryFilePath, 'utf-8');
+    const data = JSON.parse(file) as { count?: number };
+    if (typeof data.count === 'number') {
+      inMemoryViews = data.count;
+      return inMemoryViews;
+    }
+  } catch {
+    // Fallback to 0
+  }
+
+  inMemoryViews = 0;
+  return inMemoryViews;
 }
 
-async function saveViews(count: number) {
-  await ensureDataFile();
-  await writeFile(viewsFilePath, JSON.stringify({ count }, null, 2));
+async function saveViews(count: number): Promise<void> {
+  inMemoryViews = count;
+  const payload = JSON.stringify({ count }, null, 2);
+
+  // Try writing to primary project file (local development)
+  try {
+    await mkdir(dirname(primaryFilePath), { recursive: true });
+    await writeFile(primaryFilePath, payload);
+    return;
+  } catch {
+    // Primary path may be read-only on serverless hosts like Vercel
+  }
+
+  // Try writing to /tmp
+  try {
+    await writeFile(tmpFilePath, payload);
+  } catch {
+    // Retain in memory
+  }
 }
 
 export async function GET() {

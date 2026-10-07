@@ -129,6 +129,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     // Misc
     'education.gpa': 'Promedio',
     'skills.yearsSuffix': 'a',
+    'visits.label': 'visitas',
+    'visits.loading': 'Cargando visitas...',
   },
   en: {
     // Navigation
@@ -253,10 +255,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     'category.Backend': 'Backend',
     'category.Cloud': 'Cloud',
     'category.DevOps': 'DevOps',
+    'category.IA / LLM': 'AI / LLM',
 
     // Misc
     'education.gpa': 'GPA',
     'skills.yearsSuffix': 'y',
+    'visits.label': 'visits',
+    'visits.loading': 'Loading visits...',
   },
 };
 

@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { profile } from '@/data/profile';
 import { useLanguage } from '@/lib/LanguageContext';
+import { getLocalizedValue } from '@/lib/localized';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const socialLinks = [
     { href: profile.github, icon: Github, label: 'GitHub' },
@@ -32,10 +33,10 @@ export function Footer() {
               {profile.name}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-              {profile.title}
+              {getLocalizedValue(profile.title, locale) ?? ''}
             </p>
             <p className="text-gray-500 dark:text-gray-500 text-sm">
-              {profile.location}
+              {getLocalizedValue(profile.location, locale) ?? ''}
             </p>
           </div>
 

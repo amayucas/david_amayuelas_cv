@@ -9,14 +9,17 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const defaultTitle = typeof profile.title === 'string' ? profile.title : profile.title.es;
+const defaultSummary = typeof profile.summary === 'string' ? profile.summary : profile.summary.es;
+
 export const metadata: Metadata = {
-  title: `${profile.name} | ${profile.title}`,
-  description: profile.summary,
+  title: `${profile.name} | ${defaultTitle}`,
+  description: defaultSummary,
   keywords: ['resume', 'portfolio', 'developer', 'software engineer'],
   authors: [{ name: profile.name }],
   openGraph: {
-    title: `${profile.name} | ${profile.title}`,
-    description: profile.summary,
+    title: `${profile.name} | ${defaultTitle}`,
+    description: defaultSummary,
     type: 'profile',
   },
 };

@@ -3,252 +3,293 @@ import type { Localized } from '@/lib/localized';
 export type LocalizedText = Localized<string>;
 export type LocalizedTextList = Localized<string[]>;
 
-export interface Experience {
+export interface Education {
   id: string;
-  title: string | LocalizedText;
-  company: string;
-  companyLogo?: string;
+  degree: string | LocalizedText;
+  field: string | LocalizedText;
+  school: string | LocalizedText;
+  schoolLogo?: string;
   location: string | LocalizedText;
-  type: 'full-time' | 'part-time' | 'contract' | 'freelance';
-  startDate: string;
-  endDate?: string;
-  current: boolean;
-  description: string | LocalizedText;
-  achievements: string[] | LocalizedTextList;
-  technologies: string[];
+  startYear: number;
+  endYear: number;
+  gpa?: string;
+  honors?: string[] | LocalizedTextList;
+  relevantCourses?: string[] | LocalizedTextList;
+  description?: string | LocalizedText;
 }
 
-export const experience: Experience[] = [
+export interface Certification {
+  id: string;
+  name: string | LocalizedText;
+  issuer: string | LocalizedText;
+  issuerLogo?: string;
+  date: string;
+  expirationDate?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+}
+
+export interface Award {
+  id: string;
+  title: string | LocalizedText;
+  issuer: string | LocalizedText;
+  date: string;
+  description?: string | LocalizedText;
+}
+
+export const education: Education[] = [
   {
-    id: 'exp-1',
-    title: {
-      es: 'Senior Mobile Developer (Android & iOS)',
-      en: 'Senior Mobile Developer (Android & iOS)',
+    id: 'edu-1',
+    degree: {
+      es: 'Grado en Ingeniería del Software',
+      en: 'Bachelor’s Degree in Software Engineering',
     },
-    company: 'Carrefour España',
-    companyLogo: '/logos/carrefour.png',
+    field: {
+      es: '',
+      en: '',
+    },
+    school: {
+      es: 'Universidad Politécnica de Madrid',
+      en: 'Technical University of Madrid',
+    },
+    schoolLogo: '/logos/upm.png',
     location: {
       es: 'Madrid, España',
       en: 'Madrid, Spain',
     },
-    type: 'full-time',
-    startDate: '2020-01',
-    current: true,
     description: {
-      es: 'Desarrollo y mantenimiento de las aplicaciones móviles de Carrefour España para Android e iOS, contribuyendo a la transformación digital del retailer líder en Europa.',
-      en: 'Development and maintenance of Carrefour Spain mobile applications for Android and iOS, contributing to the digital transformation of the leading retailer in Europe.',
+      es: 'Asociación de estudiantes-Nostromus',
+      en: 'Student association - Nostromus',
     },
-    achievements: {
+    startYear: 2015,
+    endYear: 2020,
+    relevantCourses: {
       es: [
-        'Desarrollo de funcionalidades clave en las apps Android e iOS con millones de usuarios activos',
-        'Implementación de arquitecturas limpias (MVVM, Clean Architecture) mejorando la mantenibilidad del código',
-        'Integración con plataformas de IA y nuevas tecnologías para la experiencia de compra digital',
-        'Colaboración en la estrategia de transformación digital de Carrefour España',
-        'Impulso de buenas prácticas de desarrollo mobile en el equipo técnico',
+        'Programación Orientada a Objetos',
+        'Sistemas Operativos',
+        'Redes de Computadores',
+        'Ingeniería del Software',
+        'Bases de Datos',
       ],
       en: [
-        'Development of key features in Android and iOS apps with millions of active users',
-        'Implementation of clean architectures (MVVM, Clean Architecture) to improve code maintainability',
-        'Integration with AI platforms and new technologies to improve the digital shopping experience',
-        'Collaboration in Carrefour Spain’s digital transformation strategy',
-        'Promotion of mobile development best practices within the technical team',
+        'Object-Oriented Programming',
+        'Operating Systems',
+        'Computer Networks',
+        'Software Engineering',
+        'Databases',
       ],
     },
-    technologies: ['Kotlin', 'Swift', 'Android', 'iOS', 'Jetpack Compose', 'SwiftUI', 'React Native', 'Google Cloud', 'CI/CD'],
   },
   {
-    id: 'exp-2',
-    title: {
-      es: 'Android Developer',
-      en: 'Android Developer',
+    id: 'edu-2',
+    degree: {
+      es: 'Becario',
+      en: 'Scholar',
     },
-    company: 'IMbox.me',
-    companyLogo: '/logos/imbox.png',
+    field: {
+      es: 'Ingeniería de Software',
+      en: 'Software Engineering',
+    },
+    school: {
+      es: 'Tongji University',
+      en: 'Tongji University',
+    },
+    schoolLogo: '/logos/tongji.svg',
     location: {
-      es: 'Madrid, España',
-      en: 'Madrid, Spain',
+      es: 'Shanghai, China',
+      en: 'Shanghai, China',
     },
-    type: 'full-time',
-    startDate: '2020-02',
-    endDate: '2021-10',
-    current: false,
+    startYear: 2018,
+    endYear: 2019,
     description: {
-      es: 'Desarrollador y diseñador de la aplicación Android. Encargado de lidiar con varios equipos de desarrolladores.',
-      en: 'Android developer and designer for the company’s application, coordinating with multiple development teams.',
+      es: 'Beca de un semestre en la Tongji University.',
+      en: 'One-semester scholarship at Tongji University.',
     },
-    achievements: {
-      es: [
-        'Desarrollo y diseño completo de la aplicación Android de mensajería empresarial',
-        'Coordinación con múltiples equipos de desarrollo en un entorno ágil',
-        'Más información sobre el servicio y enlaces a apps de clientes en https://www.imbox.me',
-      ],
-      en: [
-        'Complete design and development of the company’s Android messaging application',
-        'Coordination with multiple development teams in an agile environment',
-        'More information about the service and links to client apps at https://www.imbox.me',
-      ],
-    },
-    technologies: ['Android SDK', 'Java', 'Android'],
-  },
-  {
-    id: 'exp-3',
-    title: {
-      es: 'Mentor',
-      en: 'Mentor',
-    },
-    company: 'Telefónica',
-    companyLogo: '/logos/telefonica.png',
-    location: {
-      es: 'Madrid y alrededores, España',
-      en: 'Madrid area, Spain',
-    },
-    type: 'part-time',
-    startDate: '2019-10',
-    endDate: '2020-02',
-    current: false,
-    description: {
-      es: 'Ponente en las Escuelas Talentum de Telefónica, compartiendo mi experiencia y visión sobre el futuro de la innovación en las escuelas.',
-      en: 'Speaker at Telefónica Talentum Schools, sharing my experience and vision about the future of innovation in education.',
-    },
-    achievements: {
-      es: [
-        'Ponencias en Escuelas Talentum de Telefónica',
-        'Mentoría a jóvenes talentos en innovación y tecnología',
-        'Divulgación sobre el futuro de la innovación en la educación',
-      ],
-      en: [
-        'Talks at Telefónica Talentum Schools',
-        'Mentoring young talent in innovation and technology',
-        'Dissemination of innovation trends in education',
-      ],
-    },
-    technologies: ['Mentoring', 'Innovation', 'Education'],
-  },
-  {
-    id: 'exp-4',
-    title: {
-      es: 'Creador de Contenido',
-      en: 'Content Creator',
-    },
-    company: 'TechGround',
-    companyLogo: '/logos/techground.png',
-    location: {
-      es: 'Área metropolitana de Madrid',
-      en: 'Madrid metropolitan area',
-    },
-    type: 'freelance',
-    startDate: '2014-11',
-    endDate: '2019-09',
-    current: false,
-    description: {
-      es: 'Periodista / Analista de la industria cubriendo eventos, noticias y entrevistas sobre el mundo mobile.',
-      en: 'Journalist / industry analyst covering events, news, and interviews about the mobile world.',
-    },
-    achievements: {
-      es: [
-        'Cobertura de eventos y conferencias del sector mobile',
-        'Análisis de la industria y tendencias tecnológicas',
-        'Entrevistas a profesionales y líderes del sector tecnológico',
-      ],
-      en: [
-        'Coverage of mobile industry events and conferences',
-        'Analysis of industry trends and technological developments',
-        'Interviews with professionals and leaders from the tech sector',
-      ],
-    },
-    technologies: ['Tech journalism', 'Industry analysis', 'Digital content'],
-  },
-  {
-    id: 'exp-5',
-    title: {
-      es: 'Programador de Software',
-      en: 'Software Developer',
-    },
-    company: 'Be Real Talent',
-    companyLogo: '/logos/berealtalent.svg',
-    location: {
-      es: 'Madrid, España',
-      en: 'Madrid, Spain',
-    },
-    type: 'full-time',
-    startDate: '2017-03',
-    endDate: '2018-11',
-    current: false,
-    description: {
-      es: 'Desarrollo de funcionalidades e interfaces de la plataforma. Trabajando en una amplia variedad de proyectos.',
-      en: 'Development of platform features and interfaces across a wide variety of projects.',
-    },
-    achievements: {
-      es: [
-        'Desarrollo de funcionalidades e interfaces de la plataforma',
-        'Trabajo en una amplia variedad de proyectos',
-        'Contribución al desarrollo de la plataforma de conexión entre empresas y talento',
-      ],
-      en: [
-        'Development of platform features and interfaces',
-        'Work across a wide range of projects',
-        'Contribution to the platform connecting companies with talent',
-      ],
-    },
-    technologies: ['REST APIs', 'Git', 'JavaScript'],
   },
 ];
 
-export function getTotalYearsOfExperience(): number {
-  if (experience.length === 0) return 0;
+export const certifications: Certification[] = [
+  {
+    id: 'cert-1',
+    name: {
+      es: 'Certificado de Desarrollo con IA',
+      en: 'AI Development Certification',
+    },
+    issuer: { es: 'BIG school', en: 'BIG school' },
+    date: '2026-03',
+  },
+  {
+    id: 'cert-2',
+    name: { es: 'Open Water Diver', en: 'Open Water Diver' },
+    issuer: { es: 'PADI', en: 'PADI' },
+    date: '2025-05',
+  },
+  {
+    id: 'cert-3',
+    name: {
+      es: 'Google Cloud Fundamentals: Core Infrastructure en Español',
+      en: 'Google Cloud Fundamentals: Core Infrastructure',
+    },
+    issuer: { es: 'Coursera', en: 'Coursera' },
+    date: '2022-11',
+    credentialId: '44LW6DYXEGKG',
+  },
+  {
+    id: 'cert-4',
+    name: {
+      es: 'Preparing for Your Professional Cloud Security Engineer Journey',
+      en: 'Preparing for Your Professional Cloud Security Engineer Journey',
+    },
+    issuer: { es: 'Coursera', en: 'Coursera' },
+    date: '2022-11',
+    credentialId: 'C2M4U67L7C4V',
+  },
+  {
+    id: 'cert-5',
+    name: { es: 'Piloto de RPAS', en: 'RPAS Pilot' },
+    issuer: {
+      es: 'EASA - European Union Aviation Safety Agency',
+      en: 'EASA - European Union Aviation Safety Agency',
+    },
+    date: '2020-12',
+  },
+  {
+    id: 'cert-6',
+    name: { es: 'Django + Python & REST', en: 'Django + Python & REST' },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-12',
+    credentialId: 'cert_k5spg8s3',
+  },
+  {
+    id: 'cert-7',
+    name: { es: 'Advanced Kotlin', en: 'Advanced Kotlin' },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-07',
+    credentialId: 'cert_h1j7pz6w',
+  },
+  {
+    id: 'cert-8',
+    name: {
+      es: 'JavaScript + Node.js + Express + MongoDB',
+      en: 'JavaScript + Node.js + Express + MongoDB',
+    },
+    issuer: { es: 'KeepCoding®', en: 'KeepCoding®' },
+    date: '2018-01',
+    credentialId: 'cert_2j3cpjkx',
+  },
+  {
+    id: 'cert-9',
+    name: { es: 'Mobile Apps', en: 'Mobile Apps' },
+    issuer: { es: 'Actívate con Google', en: 'Actívate con Google' },
+    date: '2017-02',
+  },
+  {
+    id: 'cert-10',
+    name: {
+      es: 'Certificación B2 en Lengua Inglesa',
+      en: 'B2 English Language Certification',
+    },
+    issuer: { es: 'TOEIC® Program', en: 'TOEIC® Program' },
+    date: '2016-11',
+    expirationDate: '2018-11',
+  },
+  {
+    id: 'cert-11',
+    name: { es: 'AI for App Building', en: 'AI for App Building' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'Y7ASFRT7ZGJY',
+  },
+  {
+    id: 'cert-12',
+    name: { es: 'AI for Data Analysis', en: 'AI for Data Analysis' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'GT2A0EX9YLUD',
+  },
+  {
+    id: 'cert-13',
+    name: { es: 'AI for Content Creation', en: 'AI for Content Creation' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'O5XJLCMV9LBH',
+  },
+  {
+    id: 'cert-14',
+    name: {
+      es: 'AI for Writing and Communicating',
+      en: 'AI for Writing and Communicating',
+    },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: '66GQZZ7WAQXX',
+  },
+  {
+    id: 'cert-15',
+    name: { es: 'AI for Research and Insights', en: 'AI for Research and Insights' },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: '1AXB8CPMT0US',
+  },
+  {
+    id: 'cert-16',
+    name: {
+      es: 'AI for Brainstorming and Planning',
+      en: 'AI for Brainstorming and Planning',
+    },
+    issuer: { es: 'Google', en: 'Google' },
+    date: '2026-06',
+    credentialId: 'BMENNNGIRDEP',
+  },
+];
 
-  const sortedByDate = [...experience].sort(
-    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime(),
-  );
+export const awards: Award[] = [];
 
-  const earliestStart = new Date(sortedByDate[0].startDate);
-  const latestEnd = sortedByDate.some((exp) => exp.current)
-    ? new Date()
-    : new Date(
-        Math.max(
-          ...sortedByDate.map((exp) => (exp.endDate ? new Date(exp.endDate).getTime() : 0)),
-        ),
-      );
-
-  const years = Math.floor(
-    (latestEnd.getTime() - earliestStart.getTime()) / (1000 * 60 * 60 * 24 * 365),
-  );
-  return years;
+export function getLatestEducation(): Education | undefined {
+  return education.length > 0 ? education[0] : undefined;
 }
 
-export function getCurrentPosition(): Experience | undefined {
-  return experience.find((exp) => exp.current);
-}
-
-export function getAllTechnologies(): string[] {
-  const techSet = new Set<string>();
-  experience.forEach((exp) => {
-    exp.technologies.forEach((tech) => techSet.add(tech));
+export function getActiveCertifications(): Certification[] {
+  const now = new Date();
+  return certifications.filter((cert) => {
+    if (!cert.expirationDate) return true;
+    const expDate = new Date(cert.expirationDate + '-01');
+    return expDate > now;
   });
-  return Array.from(techSet).sort();
 }
 
-export function formatExperienceDate(dateString: string): string {
-  const date = new Date(dateString + '-01');
-  return date.toLocaleDateString('es-ES', { month: 'short', year: 'numeric' });
+export function getExpiredCertifications(): Certification[] {
+  const now = new Date();
+  return certifications.filter((cert) => {
+    if (!cert.expirationDate) return false;
+    const expDate = new Date(cert.expirationDate + '-01');
+    return expDate <= now;
+  });
 }
 
-export function getExperienceDuration(exp: Experience): string {
-  const start = new Date(exp.startDate);
-  const end = exp.current ? new Date() : new Date(exp.endDate + '-01');
+export function hasCertifications(): boolean {
+  return certifications.length > 0;
+}
 
-  const months =
-    (end.getFullYear() - start.getFullYear()) * 12 +
-    (end.getMonth() - start.getMonth());
+export function hasAwards(): boolean {
+  return awards.length > 0;
+}
 
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
+export function formatEducation(edu: Education, locale: 'es' | 'en' = 'es'): string {
+  const degree = typeof edu.degree === 'string' ? edu.degree : edu.degree[locale];
+  const field = typeof edu.field === 'string' ? edu.field : edu.field[locale];
+  const school = typeof edu.school === 'string' ? edu.school : edu.school[locale];
+  const inWord = locale === 'es' ? 'en' : 'in';
+  const ofWord = locale === 'es' ? 'de' : 'at';
+  return `${degree}${field ? ` ${inWord} ${field}` : ''} ${ofWord} ${school} (${edu.endYear})`;
+}
 
-  if (years === 0) {
-    return `${remainingMonths} mes${remainingMonths !== 1 ? 'es' : ''}`;
-  } else if (remainingMonths === 0) {
-    return `${years} año${years !== 1 ? 's' : ''}`;
-  } else {
-    return `${years} año${years !== 1 ? 's' : ''} ${remainingMonths} mes${remainingMonths !== 1 ? 'es' : ''}`;
-  }
+export function isCertificationExpiringSoon(cert: Certification): boolean {
+  if (!cert.expirationDate) return false;
+
+  const now = new Date();
+  const expDate = new Date(cert.expirationDate + '-01');
+  const sixMonthsFromNow = new Date(now.getTime() + 180 * 24 * 60 * 60 * 1000);
+
+  return expDate <= sixMonthsFromNow && expDate > now;
 }

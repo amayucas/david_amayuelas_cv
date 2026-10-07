@@ -24,9 +24,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const projectTitle = typeof project.title === 'string' ? project.title : project.title.es;
+  const projectDesc = typeof project.description === 'string' ? project.description : project.description.es;
+
   return {
-    title: `${project.title} | Portfolio`,
-    description: project.description,
+    title: `${projectTitle} | Portfolio`,
+    description: projectDesc,
   };
 }
 

@@ -6,9 +6,10 @@ import { Section, Card, CardContent } from '@/components/ui';
 import { ContactForm } from './ContactForm';
 import { SocialLinks } from './SocialLinks';
 import { useLanguage } from '@/lib/LanguageContext';
+import { getLocalizedValue } from '@/lib/localized';
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <Section id="contact" title={t('contact.title')} subtitle={t('contact.subtitle')}>
@@ -55,7 +56,9 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.location')}</p>
-                    <p className="font-medium text-gray-900 dark:text-white">{profile.location}</p>
+                    <p className="font-medium text-gray-900 dark:text-white">
+                      {getLocalizedValue(profile.location, locale) ?? ''}
+                    </p>
                   </div>
                 </div>
 

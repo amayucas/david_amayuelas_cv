@@ -32,7 +32,7 @@ export const experience: Experience[] = [
       en: 'Madrid, Spain',
     },
     type: 'full-time',
-    startDate: '2021-01',
+    startDate: '2021-10',
     current: true,
     description: {
       es: 'Desarrollo y mantenimiento de las aplicaciones móviles de Carrefour España para Android e iOS, contribuyendo a la transformación digital del retailer líder en Europa.',

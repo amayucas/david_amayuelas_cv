@@ -37,17 +37,19 @@ export function ContactSection() {
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                {profile.phone && (
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.phone')}</p>
+                      <a href={`tel:${profile.phone}`} className="font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {profile.phone}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.phone')}</p>
-                    <a href={`tel:${profile.phone}`} className="font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      {profile.phone}
-                    </a>
-                  </div>
-                </div>
+                )}
 
                 {/* Location */}
                 <div className="flex items-start gap-3">
@@ -86,14 +88,7 @@ export function ContactSection() {
 
         {/* Contact Form */}
         <div className="lg:col-span-2">
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="font-semibold text-lg text-gray-900 dark:text-white mb-6">
-                {t('contact.sendMessage')}
-              </h3>
-              <ContactForm />
-            </CardContent>
-          </Card>
+          <ContactForm />
         </div>
       </div>
     </Section>

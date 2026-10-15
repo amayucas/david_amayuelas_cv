@@ -44,10 +44,12 @@ export function ProfileHeader() {
             <Mail className="w-4 h-4" />
             {profile.email}
           </a>
-          <span className="flex items-center gap-1.5">
-            <Phone className="w-4 h-4" />
-            {profile.phone}
-          </span>
+          {profile.phone && (
+            <span className="flex items-center gap-1.5">
+              <Phone className="w-4 h-4" />
+              {profile.phone}
+            </span>
+          )}
           <span className="flex items-center gap-1.5">
             <MapPin className="w-4 h-4" />
             {location}

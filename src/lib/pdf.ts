@@ -24,7 +24,15 @@ export function generateTextResume(locale: Locale = 'es'): string {
   lines.push(profile.name.toUpperCase());
   lines.push(title);
   lines.push('');
-  lines.push(locale === 'es' ? `Correo: ${profile.email} | Teléfono: ${profile.phone}` : `Email: ${profile.email} | Phone: ${profile.phone}`);
+  const contactLine = locale === 'es'
+    ? profile.phone
+      ? `Correo: ${profile.email} | Teléfono: ${profile.phone}`
+      : `Correo: ${profile.email}`
+    : profile.phone
+      ? `Email: ${profile.email} | Phone: ${profile.phone}`
+      : `Email: ${profile.email}`;
+
+  lines.push(contactLine);
   lines.push(locale === 'es' ? `Ubicación: ${location} | Sitio web: ${profile.website}` : `Location: ${location} | Website: ${profile.website}`);
   lines.push('');
   lines.push('═'.repeat(60));
@@ -71,42 +79,3 @@ export function generateTextResume(locale: Locale = 'es'): string {
     const field = getLocalizedValue(edu.field, locale) ?? '';
     const school = getLocalizedValue(edu.school, locale) ?? '';
     const eduLoc = getLocalizedValue(edu.location, locale) ?? '';
-    lines.push(`${degree}${field ? ` ${locale === 'es' ? 'en' : 'in'} ${field}` : ''}`);
-    lines.push(`${school}, ${eduLoc} (${edu.endYear})`);
-    if (edu.gpa) lines.push(locale === 'es' ? `Promedio: ${edu.gpa}` : `GPA: ${edu.gpa}`);
-    lines.push('');
-  });
-  
-  // Certifications
-  lines.push(locale === 'es' ? 'CERTIFICACIONES' : 'CERTIFICATIONS');
-  lines.push('-'.repeat(40));
-  certifications.forEach((cert) => {
-    const certName = getLocalizedValue(cert.name, locale) ?? '';
-    const certIssuer = getLocalizedValue(cert.issuer, locale) ?? '';
-    lines.push(`${certName} - ${certIssuer} (${formatDate(cert.date, locale)})`);
-  });
-  lines.push('');
-  
-  // Languages
-  lines.push(locale === 'es' ? 'IDIOMAS' : 'LANGUAGES');
-  lines.push('-'.repeat(40));
-  lines.push(languages.map((lang) => {
-    const langName = getLocalizedValue(lang.name, locale) ?? '';
-    return `${langName} (${lang.level})`;
-  }).join(', '));
-  
-  return lines.join('\n');
-}
-
-// Export resume data as JSON for external PDF services
-export function getResumeData() {
-  return {
-    profile,
-    experience,
-    skills,
-    skillCategories,
-    education,
-    certifications,
-    languages,
-  };
-}

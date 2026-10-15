@@ -26,7 +26,6 @@ export const profile: Profile = {
   },
   photo: '/images/profile.jpg',
   email: 'amayudance@gmail.com',
-  phone: '+34 682 131 939',
   location: {
     es: 'Madrid, España',
     en: 'Madrid, Spain',

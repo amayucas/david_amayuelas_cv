@@ -30,12 +30,20 @@ export function PrintContent() {
         <p className="text-xl text-gray-600 mb-4">{title}</p>
         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
           <span>{profile.email}</span>
-          <span>&bull;</span>
-          <span>{profile.phone}</span>
+          {profile.phone && (
+            <>
+              <span>&bull;</span>
+              <span>{profile.phone}</span>
+            </>
+          )}
           <span>&bull;</span>
           <span>{location}</span>
-          <span>&bull;</span>
-          <span>{profile.website}</span>
+          {profile.website && (
+            <>
+              <span>&bull;</span>
+              <span>{profile.website}</span>
+            </>
+          )}
         </div>
       </header>
 
@@ -73,81 +81,3 @@ export function PrintContent() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold mb-3 uppercase tracking-wide">{t('print.skills')}</h2>
-        <div className="grid grid-cols-2 gap-4">
-          {skillCategories.map((category) => {
-            const categorySkills = getSkillsByCategory(category);
-            if (categorySkills.length === 0) return null;
-            return (
-              <div key={category}>
-                <h3 className="font-medium text-sm text-gray-600 mb-1">{t(`category.${category}`) || category}</h3>
-                <p className="text-sm">{categorySkills.map((s) => s.name).join(', ')}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold mb-3 uppercase tracking-wide">{t('print.education')}</h2>
-        <div className="space-y-3">
-          {education.map((edu) => {
-            const degree = getLocalizedValue(edu.degree, locale) ?? '';
-            const field = getLocalizedValue(edu.field, locale) ?? '';
-            const school = getLocalizedValue(edu.school, locale) ?? '';
-
-            return (
-              <div key={edu.id} className="flex justify-between">
-                <div>
-                  <h3 className="font-semibold">{degree}{field ? ` ${t('education.in')} ${field}` : ''}</h3>
-                  <p className="text-gray-600">{school}</p>
-                </div>
-                <span className="text-sm text-gray-500">{edu.endYear}</span>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold mb-3 uppercase tracking-wide">{t('print.certifications')}</h2>
-        <div className="grid grid-cols-2 gap-2">
-          {certifications.map((cert) => {
-            const certName = getLocalizedValue(cert.name, locale) ?? '';
-            const certIssuer = getLocalizedValue(cert.issuer, locale) ?? '';
-
-            return (
-              <div key={cert.id} className="text-sm">
-                <span className="font-medium">{certName}</span>
-                <span className="text-gray-500"> &ndash; {certIssuer}</span>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Languages */}
-      <section>
-        <h2 className="text-lg font-bold mb-2 uppercase tracking-wide">{t('print.languages')}</h2>
-        <p className="text-sm">
-          {languages.map((lang) => {
-            const langName = getLocalizedValue(lang.name, locale) ?? '';
-            return `${langName} (${levelLabels[locale]?.[lang.level] || lang.level})`;
-          }).join(', ')}
-        </p>
-      </section>
-
-      {/* Print button - hidden when printing */}
-      <div className="mt-8 text-center print:hidden">
-        <PrintButton />
-      </div>
-    </div>
-  );
-}
